@@ -375,6 +375,7 @@ button{font-family:inherit;cursor:pointer}
 .site-footer h4{color:var(--ink);font-size:15px;margin-bottom:10px}
 .site-footer a{display:block;padding:3px 0}
 .site-footer a:hover{color:var(--ink)}
+@media (max-width:699px){.footer-grid{grid-template-columns:1fr;gap:16px}.footer-grid>div:not(:first-child){display:flex;flex-wrap:wrap;gap:2px 18px;align-items:center}.footer-grid>div:not(:first-child) h4{flex:0 0 100%;margin-bottom:2px}.site-footer .footer-grid>div:not(:first-child) a{display:inline-block;padding:8px 0}}
 .socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
 .site-footer .socials a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid var(--line);border-radius:12px;color:#0E6B50;background:transparent;transition:background .15s,color .15s}
 .site-footer .socials a:hover,.site-footer .socials a:focus-visible{background:#0A3D31;color:#C9A45C;border-color:#0A3D31}
