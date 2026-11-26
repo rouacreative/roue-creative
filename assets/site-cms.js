@@ -11,7 +11,7 @@
   function mix(a, b, t) { var p = function (h) { return [1, 3, 5].map(function (i) { return parseInt(h.substr(i, 2), 16); }); }, x = p(a), y = p(b);
     return '#' + x.map(function (v, i) { return ('0' + Math.round(v + (y[i] - v) * t).toString(16)).slice(-2); }).join(''); }
   function applyTheme(site) {
-    var t = (site && site.theme) || {}, D = { bg: '#FBF7EE', ink: '#0A3D31', accent: '#0E6B50', dark: '#0A2F27', card: '#ffffff' }, c = {};
+    var t = (site && site.theme) || {}, D = { bg: '#FBF7EE', ink: '#053D28', accent: '#085436', dark: '#03301F', card: '#ffffff' }, c = {};
     for (var k in D) c[k] = /^#[0-9a-f]{6}$/i.test(t[k] || '') ? t[k] : D[k];
     var css = ':root{--bg:' + c.bg + ';--ink:' + c.ink + ';--muted:' + mix(c.ink, c.bg, .5) + ';--faint:' + mix(c.ink, c.bg, .7) + ';--accent:' + c.accent + ';--accent-dark:' + mix(c.accent, '#000000', .25) +
       ';--accent-soft:' + mix(c.accent, '#ffffff', .88) + ';--dark:' + c.dark + ';--dark-2:' + mix(c.dark, '#000000', .35) + ';--card:' + c.card + ';--line:' + mix(c.ink, c.bg, .88) +

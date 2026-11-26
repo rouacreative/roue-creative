@@ -7,14 +7,14 @@
    التصميم مطابق للوحات التصور: خلفية دافئة، نص بني، لمسة أخضر مائي */
 :root{
   --bg:#FBF7EE;
-  --ink:#0A3D31;
+  --ink:#053D28;
   --muted:#5E7A70;
   --faint:#8FA79E;
-  --accent:#0E6B50;
-  --accent-dark:#0A3D31;
+  --accent:#085436;
+  --accent-dark:#053D28;
   --accent-soft:#E5F2EC;
-  --dark:#0A2F27;
-  --dark-2:#08251F;
+  --dark:#03301F;
+  --dark-2:#02241A;
   --card:#ffffff;
   --line:#E4DDCB;
   --radius:12px;
@@ -113,7 +113,7 @@ button{font-family:inherit;cursor:pointer}
 }
 .hero::before{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(0deg,rgba(8,37,31,.90) 8%,rgba(8,37,31,.32) 52%,rgba(8,37,31,.14) 100%);
+  background:linear-gradient(0deg,rgba(3,36,26,.90) 8%,rgba(3,36,26,.32) 52%,rgba(3,36,26,.14) 100%);
 }
 .hero .wrap{position:relative;padding:26px 20px 30px;width:100%}
 .tag{
@@ -171,9 +171,9 @@ button{font-family:inherit;cursor:pointer}
   background:#ffffffe0;color:var(--ink);
   font-size:11px;font-weight:700;padding:3px 10px;border-radius:5px;
 }
-.t1{background:linear-gradient(135deg,#2b4a47,#0E6B50)}
-.t2{background:linear-gradient(135deg,#7a4b3a,#C9A45C)}
-.t3{background:linear-gradient(135deg,#0A2F27,#4a7d78)}
+.t1{background:linear-gradient(135deg,#2b4a47,#085436)}
+.t2{background:linear-gradient(135deg,#7a4b3a,#F4B749)}
+.t3{background:linear-gradient(135deg,#03301F,#4a7d78)}
 .t4{background:linear-gradient(135deg,#5b5f7a,#a8aecf)}
 .t5{background:linear-gradient(135deg,#6e5230,#cfa15e)}
 .t6{background:linear-gradient(135deg,#3f5a44,#8fb98a)}
@@ -331,7 +331,7 @@ button{font-family:inherit;cursor:pointer}
   font-size:16px;font-family:inherit;color:var(--ink);
 }
 .field textarea{min-height:110px;resize:vertical}
-.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid #0E6B5055;border-color:var(--accent)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid #08543655;border-color:var(--accent)}
 .side-card{
   background:#fff;border:1px solid var(--line);border-radius:14px;
   padding:20px;margin-bottom:16px;
@@ -367,31 +367,27 @@ button{font-family:inherit;cursor:pointer}
 
 /* الفوتر */
 .site-footer{
-  background:transparent;color:var(--muted);
-  margin-top:56px;padding:34px 0 24px;font-size:13px;
-  border-top:1px solid var(--line);
+  background:var(--dark);color:#B9D3C8;
+  margin-top:56px;padding:36px 0 24px;font-size:13px;
+  border-top:3px solid #F4B749;
 }
 .footer-grid{display:grid;grid-template-columns:1fr;gap:26px}
-.site-footer h4{color:var(--ink);font-size:15px;margin-bottom:10px}
+.site-footer h4{color:#F4B749;font-size:15px;margin-bottom:10px}
 .site-footer a{display:block;padding:3px 0}
-.site-footer a:hover{color:var(--ink)}
-@media (max-width:699px){.footer-grid{grid-template-columns:1fr;gap:16px}.footer-grid>div:not(:first-child){display:flex;flex-wrap:wrap;gap:2px 18px;align-items:center}.footer-grid>div:not(:first-child) h4{flex:0 0 100%;margin-bottom:2px}.site-footer .footer-grid>div:not(:first-child) a{display:inline-block;padding:8px 0}}
+.site-footer a:hover{color:#FEF6B5}
 .socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-.site-footer .socials a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid var(--line);border-radius:12px;color:#0E6B50;background:transparent;transition:background .15s,color .15s}
-.site-footer .socials a:hover,.site-footer .socials a:focus-visible{background:#0A3D31;color:#C9A45C;border-color:#0A3D31}
-.socials a{
-  border:1px solid var(--line);border-radius:8px;
-  padding:6px 14px;font-size:12px;display:inline-block;
-}
+.site-footer .socials a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid #F4B74966;border-radius:12px;color:#F4B749;background:transparent;transition:background .15s,color .15s}
+.site-footer .socials a:hover,.site-footer .socials a:focus-visible{background:#F4B749;color:#03301F;border-color:#F4B749}
+@media (max-width:699px){.footer-grid{grid-template-columns:1fr;gap:16px}.footer-grid>div:not(:first-child){display:flex;flex-wrap:wrap;gap:2px 18px;align-items:center}.footer-grid>div:not(:first-child) h4{flex:0 0 100%;margin-bottom:2px}.site-footer .footer-grid>div:not(:first-child) a{display:inline-block;padding:8px 0}}
 .footer-bottom{
-  border-top:1px solid var(--line);margin-top:26px;padding-top:16px;
-  font-size:11px;color:var(--faint);display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;
+  border-top:1px solid #F4B74933;margin-top:26px;padding-top:16px;
+  font-size:11px;color:#8FB0A3;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;
 }
 
 /* تابلت وديسكتوب */
 @media (min-width:700px){
   .hero{background:var(--dark-2) url('img/hero.jpg') center 38%/cover no-repeat;display:block;min-height:0}
-  .hero::before{background:linear-gradient(270deg,rgba(8,37,31,.93) 0%,rgba(8,37,31,.55) 55%,rgba(8,37,31,.18) 100%),radial-gradient(600px 300px at 85% 15%,#0E6B5026,transparent 65%)}
+  .hero::before{background:linear-gradient(270deg,rgba(3,36,26,.93) 0%,rgba(3,36,26,.55) 55%,rgba(3,36,26,.18) 100%),radial-gradient(600px 300px at 85% 15%,#08543626,transparent 65%)}
   .hero .wrap{padding:76px 20px 64px;width:auto}
   .hero .tag{background:#ffffff1d;color:#CFE5DB;border-radius:5px;backdrop-filter:none}
   .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
@@ -475,8 +471,8 @@ img.logo-mark{width:36px;height:36px;object-fit:contain;border:0;flex-shrink:0}
 }
 
 /* ROUA identity */
-:root{--gold:#C9A45C;--aqua:#8EDBC9}
-.logo-lockup{height:44px;width:auto;display:block}
+:root{--gold:#F4B749;--aqua:#8EDBC9}
+.logo-lockup{height:40px;width:auto;display:block}
 .logo .logo-lockup{margin:0}
-.footer-brand img.logo-lockup{width:auto;height:44px}
+.footer-brand img.logo-lockup{width:auto;height:auto;max-width:280px;max-height:84px}
 h1,h2,h3,h4,.btn,.logo-text b{font-weight:700}

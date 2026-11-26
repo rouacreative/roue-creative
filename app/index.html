@@ -1,10 +1,10 @@
 <!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ROUA</title>
-<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0A2F27"><link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#03301F"><link rel="apple-touch-icon" href="assets/icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="ROUA">
 <style>@font-face{font-family:"Quicksand";font-weight:500;font-display:swap;src:url(/assets/fonts/Quicksand-Medium.ttf)}@font-face{font-family:"Quicksand";font-weight:700;font-display:swap;src:url(/assets/fonts/Quicksand-Bold.ttf)}@font-face{font-family:"Noto Kufi Arabic";font-weight:400;font-display:swap;src:url(/assets/fonts/NotoKufiArabic-Regular.ttf)}@font-face{font-family:"Noto Kufi Arabic";font-weight:500;font-display:swap;src:url(/assets/fonts/NotoKufiArabic-Medium.ttf)}@font-face{font-family:"Noto Kufi Arabic";font-weight:700;font-display:swap;src:url(/assets/fonts/NotoKufiArabic-Bold.ttf)}
 
-:root{--bg:#FBF7EE;--ink:#0A3D31;--mut:#5E7A70;--line:#E4DDCB;--acc:#0E6B50;--accd:#0A3D31;--soft:#E5F2EC;--dark:#0A2F27;--red:#b91c1c}
+:root{--bg:#FBF7EE;--ink:#053D28;--mut:#5E7A70;--line:#E4DDCB;--acc:#085436;--accd:#053D28;--soft:#E5F2EC;--dark:#03301F;--red:#b91c1c}
 *{box-sizing:border-box}body{margin:0;font-family:"Quicksand","Noto Kufi Arabic","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;background:var(--bg);color:var(--ink);-webkit-text-size-adjust:100%}
 header{position:sticky;top:0;background:#FBF7EE;border-bottom:1px solid var(--line);padding:10px 16px;padding-top:calc(10px + env(safe-area-inset-top));display:flex;align-items:center;justify-content:space-between;z-index:5}
 .logo{display:flex;align-items:center;gap:10px}.logo img{width:34px;height:34px;border-radius:50%}.logo b{font-size:16px;display:block;line-height:1.2}.logo small{font-size:10px;color:#8FA79E;display:block}
@@ -35,7 +35,7 @@ label.sub{display:block;margin:8px 0 2px}
 .tg{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0}.sw{width:46px;height:26px;border-radius:99px;background:#D9D2BF;border:0;position:relative;flex:none}.sw::after{content:"";position:absolute;top:3px;right:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.15s}.sw.on{background:var(--acc)}.sw.on::after{right:23px}
 .empty{text-align:center;color:var(--mut);padding:26px 10px;font-size:14px}
 .toast{position:fixed;bottom:84px;left:50%;transform:translateX(-50%);background:var(--dark);color:#fff;padding:10px 16px;border-radius:10px;font-size:13px;z-index:20;max-width:90%}
-.ribbon{background:#08251F;color:#C5DDD3;font-size:11px;text-align:center;padding:6px}
+.ribbon{background:#02241A;color:#C5DDD3;font-size:11px;text-align:center;padding:6px}
 .modal{position:fixed;inset:0;background:#0006;z-index:30;display:flex;align-items:flex-end;justify-content:center}.modal>div{background:#fff;border-radius:16px 16px 0 0;padding:18px;width:100%;max-width:480px;padding-bottom:calc(18px + env(safe-area-inset-bottom))}
 .pub label.sub{display:block;margin:12px 2px 5px}.pub .pl{display:flex;flex-wrap:wrap;gap:8px}.pub .pl label{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 12px;font-size:14px;margin:0;flex:1 1 44%}.pub .pl input{width:auto;margin:0}.pub .pl label.on{border-color:var(--acc);background:var(--soft)}
 .pub .st{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0;border-top:1px solid var(--line);font-size:14px}.pub .st:first-of-type{border-top:0}.pub .bd{font-size:12px;border-radius:999px;padding:3px 10px;white-space:nowrap}.bd.ok{background:#e3f3ea;color:#1d6b3f}.bd.pr{background:#fdf1d8;color:#8a5a00}.bd.er{background:#fbe4e4;color:#b91c1c}.pub .warn{background:#fdf1d8;color:#8a5a00;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.7;margin-top:10px}.pub textarea{min-height:90px;resize:vertical}
@@ -108,7 +108,7 @@ function changePw(forced){ask(forced?"غيّر كلمة السر قبل ما ت�
 function late(t){return t.st=="done"?(t.due&&t.done&&t.done>t.due):(t.due&&t.due<now())}
 function pstats(uid){const ts=D.tasks.filter(t=>t.who==uid);const dn=ts.filter(t=>t.st=="done");const wd=dn.filter(t=>t.due&&t.done);const on=wd.filter(t=>t.done<=t.due).length;const rs=dn.filter(t=>t.rating);
  return{ts,dn:dn.length,open:ts.length-dn.length,ontime:wd.length?Math.round(on/wd.length*100):null,avg:rs.length?rs.reduce((a,t)=>a+t.rating,0)/rs.length:null,nr:rs.length}}
-const stars=(n,id,edit)=>[1,2,3,4,5].map(i=>`<span ${edit?`onclick="rate('${esc(id)}',${i})"`:""} style="font-size:${edit?24:14}px;color:${i<=(n||0)?"#C9A45C":"#D9D2BF"};padding:${edit?"3px 4px":"0"};cursor:${edit?"pointer":"default"}">★</span>`).join("");
+const stars=(n,id,edit)=>[1,2,3,4,5].map(i=>`<span ${edit?`onclick="rate('${esc(id)}',${i})"`:""} style="font-size:${edit?24:14}px;color:${i<=(n||0)?"#F4B749":"#D9D2BF"};padding:${edit?"3px 4px":"0"};cursor:${edit?"pointer":"default"}">★</span>`).join("");
 // ---- views
 function taskCard(t){const v=D.videos.find(x=>x.id==t.v);if(!v)return"";const l=late(t);
  return `<div class="card ${t.st=="done"?"stg d":""}"><b>${esc(v.t)}</b><div class="sub">${esc(SN(t.s))}</div>
