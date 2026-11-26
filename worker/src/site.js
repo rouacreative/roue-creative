@@ -9,7 +9,7 @@ export const FILTERS = { ads: "إعلانات", series: "سلاسل", shorts: "�
 export const FONTS = { "": "الافتراضي", "Cairo": "Cairo", "Tajawal": "Tajawal", "Almarai": "Almarai", "Noto Sans Arabic": "Noto Sans Arabic", "IBM Plex Sans Arabic": "IBM Plex Sans Arabic", "Readex Pro": "Readex Pro" };
 const BUILTIN = ["desk", "drama", "falcon", "grandma", "headphones", "hero", "kids", "product", "scifi"].map(n => `assets/img/${n}.jpg`);
 export const THEME_DEFAULT = { bg: "#FBF7EE", ink: "#0A3D31", accent: "#0E6B50", dark: "#0A2F27", card: "#ffffff", font: "" };
-const LINKS = ["youtube", "facebook", "instagram", "tiktok", "whatsapp", "email"];
+const LINKS = ["youtube", "facebook", "instagram", "tiktok", "linkedin", "whatsapp", "email"];
 export const catsOf = site => (Array.isArray(site.categories) && site.categories.length ? site.categories : Object.entries(FILTERS).map(([id, name]) => ({ id, name })));
 const SITE_DEFAULT = { theme: {}, texts: {}, images: {}, links: {}, hide_demo: false, managed: {} };
 

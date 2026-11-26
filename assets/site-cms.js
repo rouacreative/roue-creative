@@ -193,7 +193,7 @@
     $$('[data-cms-link]').forEach(function (a) {
       var k = a.getAttribute('data-cms-link'), h = href(k, L[k]);
       if (h) { a.href = h; if (k !== 'email') { a.target = '_blank'; a.rel = 'noopener'; } else a.textContent = L[k]; }
-      else if (SITE.hide_demo) a.style.display = 'none';
+      else if (SITE.hide_demo && (a.getAttribute('href') || '#') === '#') a.style.display = 'none';
     });
     var logo = img(I.logo);
     if (logo) { $$('img.logo-mark,.footer-brand img,.logo img').forEach(function (i) { i.src = logo; }); $$('link[rel=icon],link[rel=apple-touch-icon]').forEach(function (l) { l.href = logo; }); }

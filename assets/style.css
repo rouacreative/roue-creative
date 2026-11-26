@@ -375,7 +375,7 @@ button{font-family:inherit;cursor:pointer}
 .site-footer h4{color:var(--ink);font-size:15px;margin-bottom:10px}
 .site-footer a{display:block;padding:3px 0}
 .site-footer a:hover{color:var(--ink)}
-.socials{display:flex;gap:10px;margin-top:12px}
+.socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.socials a{white-space:nowrap}
 .socials a{
   border:1px solid var(--line);border-radius:8px;
   padding:6px 14px;font-size:12px;display:inline-block;
