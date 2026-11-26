@@ -1,0 +1,200 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ROUA</title>
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0A2F27"><link rel="apple-touch-icon" href="assets/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="ROUA">
+<style>@font-face{font-family:"Quicksand";font-weight:500;font-display:swap;src:url(/assets/fonts/Quicksand-Medium.ttf)}@font-face{font-family:"Quicksand";font-weight:700;font-display:swap;src:url(/assets/fonts/Quicksand-Bold.ttf)}@font-face{font-family:"Noto Kufi Arabic";font-weight:400;font-display:swap;src:url(/assets/fonts/NotoKufiArabic-Regular.ttf)}@font-face{font-family:"Noto Kufi Arabic";font-weight:500;font-display:swap;src:url(/assets/fonts/NotoKufiArabic-Medium.ttf)}@font-face{font-family:"Noto Kufi Arabic";font-weight:700;font-display:swap;src:url(/assets/fonts/NotoKufiArabic-Bold.ttf)}
+
+:root{--bg:#FBF7EE;--ink:#0A3D31;--mut:#5E7A70;--line:#E4DDCB;--acc:#0E6B50;--accd:#0A3D31;--soft:#E5F2EC;--dark:#0A2F27;--red:#b91c1c}
+*{box-sizing:border-box}body{margin:0;font-family:"Quicksand","Noto Kufi Arabic","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;background:var(--bg);color:var(--ink);-webkit-text-size-adjust:100%}
+header{position:sticky;top:0;background:#FBF7EE;border-bottom:1px solid var(--line);padding:10px 16px;padding-top:calc(10px + env(safe-area-inset-top));display:flex;align-items:center;justify-content:space-between;z-index:5}
+.logo{display:flex;align-items:center;gap:10px}.logo img{width:34px;height:34px;border-radius:50%}.logo b{font-size:16px;display:block;line-height:1.2}.logo small{font-size:10px;color:#8FA79E;display:block}
+.me{font-size:12px;color:var(--mut);display:flex;gap:10px;align-items:center}.me a{color:var(--ink);text-decoration:underline;padding:6px}
+main{padding:14px 12px 110px;max-width:760px;margin:auto}
+.tabs{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:flex;z-index:6;padding-bottom:env(safe-area-inset-bottom)}
+.tabs button{flex:1;border:0;background:none;padding:12px 2px 12px;font:inherit;font-size:12.5px;color:var(--mut)}.tabs button.on{color:var(--accd);font-weight:700;box-shadow:inset 0 3px 0 var(--acc)}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
+.card b{display:block;font-size:15px;margin-bottom:4px}.sub{font-size:12px;color:var(--mut)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px}
+.tag{font-size:11px;background:var(--soft);border-radius:999px;padding:3px 9px;color:var(--mut);white-space:nowrap}.late{color:var(--red);font-weight:600}
+.btn{border:0;background:var(--acc);color:#fff;border-radius:10px;padding:10px 14px;font:inherit;font-size:14px;min-height:40px}.btn.g{background:var(--soft);color:var(--accd)}.btn.r{background:#fbe4e4;color:var(--red)}.btn.w{width:100%}
+h3{font-size:13px;color:var(--mut);margin:16px 4px 8px;font-weight:600}
+input,select,textarea{font:inherit;font-size:16px;border:1px solid var(--line);border-radius:10px;padding:9px;background:#fff;width:100%;color:var(--ink)}
+label.sub{display:block;margin:8px 0 2px}
+.login{max-width:340px;margin:10vh auto;padding:0 20px;text-align:center}.login h1{font-size:26px;margin:0}.login input{margin-top:10px;text-align:right}.login .btn{width:100%;margin-top:14px;padding:12px}
+.login .logo{justify-content:center;flex-direction:column;gap:8px}.login .logo img{width:64px;height:64px}.logo img.lk{width:auto;height:36px;border-radius:0}.login .logo img.lk{height:56px;width:auto}
+.hero{background:linear-gradient(135deg,var(--dark),#0E3F33);color:#fff;border-radius:16px;padding:18px;margin-bottom:14px}.hero h2{margin:0 0 4px;font-size:20px}.hero p{margin:0;color:#C5DDD3;font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:6px}.stats div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;font-size:12px;color:var(--mut)}.stats b{display:block;font-size:22px;color:var(--accd)}
+.vsel{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px}.vsel button{white-space:nowrap;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;color:var(--ink)}.vsel button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.bar{height:6px;background:#E4DDCB;border-radius:9px;overflow:hidden;margin-top:8px}.bar div{height:100%;background:var(--acc)}
+.acc{display:flex;flex-direction:column;gap:8px}.stg{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}.stg.d{opacity:.7}.stg.off{opacity:.5}
+.sh{width:100%;display:flex;align-items:center;gap:10px;border:0;background:none;padding:14px;font:inherit;font-size:15px;color:var(--ink);text-align:right}.sh .sn{flex:1;font-weight:600}.chev{color:var(--mut);width:14px}
+.sb{padding:12px 14px 14px;border-top:1px solid var(--line)}
+.av{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--mut)}.av i{width:22px;height:22px;border-radius:50%;background:var(--acc);color:#fff;font-style:normal;font-size:11px;display:grid;place-items:center}
+.st-doing{background:#fdf1d8;color:#8a5a00}.st-done{background:var(--soft);color:var(--accd)}.st-todo{background:#F1EEE4;color:var(--mut)}.st-late{background:#fbe4e4;color:var(--red)}
+.t{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;margin-bottom:8px;font-size:13px}.t.d{opacity:.6}
+.tg{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0}.sw{width:46px;height:26px;border-radius:99px;background:#D9D2BF;border:0;position:relative;flex:none}.sw::after{content:"";position:absolute;top:3px;right:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.15s}.sw.on{background:var(--acc)}.sw.on::after{right:23px}
+.empty{text-align:center;color:var(--mut);padding:26px 10px;font-size:14px}
+.toast{position:fixed;bottom:84px;left:50%;transform:translateX(-50%);background:var(--dark);color:#fff;padding:10px 16px;border-radius:10px;font-size:13px;z-index:20;max-width:90%}
+.ribbon{background:#08251F;color:#C5DDD3;font-size:11px;text-align:center;padding:6px}
+.modal{position:fixed;inset:0;background:#0006;z-index:30;display:flex;align-items:flex-end;justify-content:center}.modal>div{background:#fff;border-radius:16px 16px 0 0;padding:18px;width:100%;max-width:480px;padding-bottom:calc(18px + env(safe-area-inset-bottom))}
+.pub label.sub{display:block;margin:12px 2px 5px}.pub .pl{display:flex;flex-wrap:wrap;gap:8px}.pub .pl label{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 12px;font-size:14px;margin:0;flex:1 1 44%}.pub .pl input{width:auto;margin:0}.pub .pl label.on{border-color:var(--acc);background:var(--soft)}
+.pub .st{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0;border-top:1px solid var(--line);font-size:14px}.pub .st:first-of-type{border-top:0}.pub .bd{font-size:12px;border-radius:999px;padding:3px 10px;white-space:nowrap}.bd.ok{background:#e3f3ea;color:#1d6b3f}.bd.pr{background:#fdf1d8;color:#8a5a00}.bd.er{background:#fbe4e4;color:#b91c1c}.pub .warn{background:#fdf1d8;color:#8a5a00;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.7;margin-top:10px}.pub textarea{min-height:90px;resize:vertical}
+</style><script src="/assets/site-cms.js" data-theme-only></script></head><body><div id="app"></div><div id="ov"></div><div id="ov2"></div>
+<script>
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const q=new URLSearchParams(location.search);
+const MOCK=location.protocol=="file:"||(["localhost","127.0.0.1"].includes(location.hostname)&&q.has("mock"));
+const seed=()=>({stages:[{id:"idea",name:"الأفكار والسكريبت"},{id:"design",name:"التصميم والستوري بورد"},{id:"gen",name:"التوليد"},{id:"edit",name:"المونتاج والصوت"},{id:"review",name:"المراجعة والتسليم"}],
+ settings:{platform_name:"ROUA",reminder_hours:2,notify_assigned:true,notify_handoff:true,notify_deadline:true},
+ users:[{id:"u1",name:"عبدالله",email:"admin@team.co",admin:1,active:1},{id:"u2",name:"منى",email:"mona@team.co",stage:"idea",active:1},{id:"u3",name:"كريم",email:"karim@team.co",stage:"design",active:1},{id:"u4",name:"سارة",email:"sara@team.co",stage:"design",active:1},{id:"u5",name:"يوسف",email:"yousef@team.co",stage:"gen",active:1},{id:"u6",name:"هبة",email:"heba@team.co",stage:"edit",active:1},{id:"u7",name:"أحمد",email:"ahmed@team.co",stage:"review",active:0}],
+ videos:[{id:"v0",t:"فيديو سابق"},{id:"v1",t:"إعلان رؤى (ديمو)"},{id:"v2",t:"فيديو العميل ٢"}],
+ tasks:[{id:"t8",v:"v0",s:"idea",who:"u2",start:"2026-11-10T10:00",due:"2026-11-12T12:00",st:"done",done:"2026-11-12T15:00",rating:3},{id:"t9",v:"v0",s:"design",who:"u3",start:"2026-11-12T15:00",due:"2026-11-14T12:00",st:"done",done:"2026-11-14T10:00",rating:5},{id:"t10",v:"v0",s:"gen",who:"u5",start:"2026-11-14T12:00",due:"2026-11-16T12:00",st:"done",done:"2026-11-16T11:00",rating:4},
+ {id:"t1",v:"v1",s:"idea",who:"u2",start:"2026-11-23T10:00",due:"2026-11-24T18:00",st:"done",done:"2026-11-24T16:30",rating:4},{id:"t2",v:"v1",s:"design",who:"u3",start:"2026-11-24T18:00",due:"2026-11-26T15:00",st:"doing"},{id:"t3",v:"v1",s:"gen",who:"u5",start:"2026-11-26T15:00",due:"2026-11-28T12:00",st:"todo"},{id:"t4",v:"v1",s:"edit",who:"u6",start:"2026-11-28T12:00",due:"2026-12-01T16:30",st:"todo"},{id:"t5",v:"v1",s:"review",who:"u7",start:"2026-12-01T16:30",due:"2026-12-03T14:00",st:"todo"},
+ {id:"t6",v:"v2",s:"idea",who:"u2",start:"2026-11-24T09:00",due:"2026-11-25T17:00",st:"doing"},{id:"t7",v:"v2",s:"design",who:"u4",start:"2026-11-25T17:00",due:"2026-11-27T13:00",st:"todo"}]});
+let D=MOCK?(JSON.parse(localStorage.getItem("pl3")||"null")||seed()):{stages:[],settings:{},users:[],videos:[],tasks:[]};
+let me=MOCK?(q.get("as")||localStorage.getItem("me")):null,tab=q.get("tab")||"home",vid=null,MUST=false,BUSY=false;const OPEN={};
+const NOW=MOCK?"2026-11-25T19:16":null;const now=()=>NOW||(d=>new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,16))(new Date());
+const U=id=>D.users.find(u=>u.id==id);const SN=id=>(D.stages.find(s=>s.id==id)||{}).name||"";
+const stLabel={todo:"لسه",doing:"شغال",done:"خلص"};
+const fmtT=d=>{if(!d)return"";const [a,b]=d.split("T");return a.slice(5).replace("-","/")+" "+(b||"")};const fmt=d=>d?fmtT(d):"بدون موعد";
+const ini=n=>esc((n||"?").trim()[0]);
+function toast(m){const e=document.createElement("div");e.className="toast";e.textContent=m;document.body.appendChild(e);setTimeout(()=>e.remove(),3200)}
+const ERR={setup_fail:"الإيميل ده مش متاح للتسجيل لأول مرة. راجع إنك كاتب الإيميل صح بالظبط (حرف ناقص أو غلط؟). لو سجلت قبل كده ادخل بكلمة السر، ولو لأ كلّم المدير",bad_login:"الإيميل أو كلمة السر غلط",too_many:"محاولات كتير. استنى ربع ساعة وجرب تاني",forbidden:"مش مسموح لك بالعملية دي",exists:"الإيميل ده موجود قبل كده",bad_input:"راجع البيانات المدخلة",weak:"كلمة السر لازم 8 حروف على الأقل",bad_current:"كلمة السر الحالية غلط",last_admin:"لازم يفضل مدير واحد على الأقل",last_stage:"لازم تفضل مرحلة واحدة على الأقل",self:"مينفعش تعمل كده على حسابك",only_done_tasks:"التقييم للمهام اللي خلصت بس",bad_time:"الوقت غير صالح",network:"مفيش اتصال. جرب تاني"};
+// ---- data layer
+async function api(p,body){let r;try{r=await fetch("/api"+p,{method:body?"POST":"GET",headers:{"content-type":"application/json"},body:body?JSON.stringify(body):undefined,credentials:"same-origin"})}catch(e){throw{error:"network"}}
+ if(r.status==401&&p!="/login"){me=null;R();throw{error:"auth"}}const j=await r.json().catch(()=>({}));if(!r.ok)throw{status:r.status,error:j.error||"error"};return j}
+async function load(){if(MOCK){R();return}try{const s=await api("/state");me=s.me;MUST=s.must_change;
+ D={stages:s.stages,settings:s.settings,users:s.users.map(u=>({id:u.id,name:u.name,email:u.email,stage:u.stage,admin:u.is_admin,active:u.active})),videos:s.videos.map(v=>({id:v.id,t:v.title})),
+ tasks:s.tasks.map(t=>({id:t.id,v:t.video_id,s:t.stage,who:t.assignee||"",start:t.start_at?t.start_at.slice(0,16).replace(" ","T"):"",due:t.due_at?t.due_at.slice(0,16).replace(" ","T"):"",st:t.status,done:t.completed_at?t.completed_at.slice(0,16).replace(" ","T"):"",rating:t.rating,rnote:t.rating_note}))};
+ if(!D.videos.find(v=>v.id==vid))vid=D.videos.length?D.videos[D.videos.length-1].id:null}catch(e){if(e.error!="auth"&&e.error!="network")toast("حصل خطأ في التحميل");if(e.error=="network"&&me)toast(ERR.network)}R()}
+function mockAct(p,b){const t=id=>D.tasks.find(x=>x.id==id);const pw="Ab3dEf9hJk2m";
+ if(p=="/task/status"){const x=t(b.id);x.st=b.status;x.done=b.status=="done"?now():""}
+ else if(p=="/task/update"){const x=t(b.id);x.who=b.assignee||"";x.start=b.start||"";x.due=b.due||""}
+ else if(p=="/task/rate"){t(b.id).rating=b.rating}
+ else if(p=="/video"){const id="v"+Date.now();D.videos.push({id,t:b.title});D.stages.forEach(s=>{const u=D.users.find(u=>u.stage==s.id&&u.active);D.tasks.push({id:id+s.id,v:id,s:s.id,who:u?u.id:"",start:"",due:"",st:"todo"})});vid=id}
+ else if(p=="/video/rename"){D.videos.find(v=>v.id==b.id).t=b.title}
+ else if(p=="/video/delete"){D.videos=D.videos.filter(v=>v.id!=b.id);D.tasks=D.tasks.filter(x=>x.v!=b.id)}
+ else if(p=="/user"){D.users.push({id:"u"+Date.now(),name:b.name,email:b.email,stage:b.stage,active:1});return{initial_password:pw}}
+ else if(p=="/user/update"){const u=U(b.id);if(b.name)u.name=b.name;u.stage=b.stage||null}
+ else if(p=="/user/active"){U(b.id).active=b.active?1:0}
+ else if(p=="/user/admin"){U(b.id).admin=b.admin?1:0}
+ else if(p=="/user/reset"){return{initial_password:pw}}
+ else if(p=="/stage/add"){const id="s"+Date.now();D.stages.push({id,name:b.name});D.videos.forEach(v=>D.tasks.push({id:v.id+id,v:v.id,s:id,who:"",st:"todo"}))}
+ else if(p=="/stage/rename"){D.stages.find(s=>s.id==b.id).name=b.name}
+ else if(p=="/stage/move"){const i=D.stages.findIndex(s=>s.id==b.id),j=i+(b.dir<0?-1:1);if(j>=0&&j<D.stages.length)[D.stages[i],D.stages[j]]=[D.stages[j],D.stages[i]]}
+ else if(p=="/stage/delete"){D.stages=D.stages.filter(s=>s.id!=b.id);D.tasks=D.tasks.filter(x=>x.s!=b.id);D.users.forEach(u=>{if(u.stage==b.id)u.stage=null})}
+ else if(p=="/settings"){Object.assign(D.settings,b)}
+ else if(p=="/notify/test"){toast("اتبعت إشعار تجريبي")}
+ else if(p=="/password"){MUST=false}
+ localStorage.setItem("pl3",JSON.stringify(D));return{ok:1}}
+async function act(p,b){if(BUSY)return;BUSY=true;try{let r;if(MOCK){r=mockAct(p,b);R()}else{r=await api(p,b);if(p!="/notify/test")await load()}return r}catch(e){if(e.error!="auth")toast(ERR[e.error]||"حصل خطأ. جرب تاني");return null}finally{BUSY=false}}
+// ---- helpers (ui)
+const setSt=(id,st)=>act("/task/status",{id,status:st});
+const assign=(id,k,v)=>{const t=D.tasks.find(t=>t.id==id);t[k]=v;return act("/task/update",{id,assignee:t.who||null,start:t.start||null,due:t.due||null})};
+const rate=(id,n)=>{const t=D.tasks.find(t=>t.id==id);return act("/task/rate",{id,rating:t.rating==n?null:n})};
+const tog=k=>{OPEN[k]=!OPEN[k];R()};
+function ask(title,fields,ok){document.getElementById("ov").innerHTML=`<div class="modal" onclick="if(event.target==this)this.remove()"><div><b style="font-size:16px">${esc(title)}</b>${fields.map((f,i)=>`<label class="sub">${esc(f.l)}</label>${f.opts?`<select id="f${i}">${f.opts.map(o=>`<option value="${esc(o[0])}" ${o[0]==f.v?"selected":""}>${esc(o[1])}</option>`).join("")}</select>`:`<input id="f${i}" type="${f.t||"text"}" value="${esc(f.v||"")}" ${f.dir?`dir="${f.dir}"`:""} autocomplete="off">`}`).join("")}
+ <div class="row" style="margin-top:16px"><button class="btn g" onclick="document.getElementById('ov').innerHTML=''">إلغاء</button><button class="btn" id="okb">حفظ</button></div></div></div>`;
+ document.getElementById("okb").onclick=async()=>{const v=fields.map((f,i)=>document.getElementById("f"+i).value.trim());document.getElementById("ov").innerHTML="";await ok(v)}}
+function shown(title,msg){document.getElementById("ov").innerHTML=`<div class="modal"><div><b style="font-size:16px">${esc(title)}</b><p class="sub" style="font-size:14px;line-height:1.8">${msg}</p><button class="btn w" onclick="document.getElementById('ov').innerHTML=''">تمام</button></div></div>`}
+const stageOpts=(blank)=>[...(blank?[["","بدون مرحلة"]]:[]),...D.stages.map(s=>[s.id,s.name])];
+// ---- auth
+async function login(){const e=document.getElementById("em").value.trim(),p=document.getElementById("pw").value;if(MOCK){const u=D.users.find(u=>u.email==e.toLowerCase()&&u.active);if(!u)return toast(ERR.bad_login);me=u.id;localStorage.setItem("me",me);R();return}
+ try{await api("/login",{email:e,password:p});await load()}catch(x){toast(ERR[x.error]||"حصل خطأ")}}
+function firstTime(){ask("أول مرة؟ اختار كلمة السر",[{l:"الإيميل اللي المدير ضافه",t:"email",dir:"ltr"},{l:"كلمة السر اللي تختارها (8 حروف على الأقل)",t:"password"}],async v=>{try{await api("/setup",{email:v[0].trim(),password:v[1]});await load();toast("أهلاً بيك")}catch(x){toast(ERR[x.error]||"حصل خطأ")}})}
+async function out(){if(!MOCK)try{await api("/logout",{})}catch(_){}localStorage.removeItem("me");me=null;R()}
+function changePw(forced){ask(forced?"غيّر كلمة السر قبل ما تكمل":"تغيير كلمة السر",[{l:"كلمة السر الحالية",t:"password"},{l:"كلمة السر الجديدة (8 حروف على الأقل)",t:"password"}],async v=>{const r=await act("/password",{current:v[0],new:v[1]});if(r)toast("اتغيرت كلمة السر")})}
+// ---- people stats
+function late(t){return t.st=="done"?(t.due&&t.done&&t.done>t.due):(t.due&&t.due<now())}
+function pstats(uid){const ts=D.tasks.filter(t=>t.who==uid);const dn=ts.filter(t=>t.st=="done");const wd=dn.filter(t=>t.due&&t.done);const on=wd.filter(t=>t.done<=t.due).length;const rs=dn.filter(t=>t.rating);
+ return{ts,dn:dn.length,open:ts.length-dn.length,ontime:wd.length?Math.round(on/wd.length*100):null,avg:rs.length?rs.reduce((a,t)=>a+t.rating,0)/rs.length:null,nr:rs.length}}
+const stars=(n,id,edit)=>[1,2,3,4,5].map(i=>`<span ${edit?`onclick="rate('${esc(id)}',${i})"`:""} style="font-size:${edit?24:14}px;color:${i<=(n||0)?"#C9A45C":"#D9D2BF"};padding:${edit?"3px 4px":"0"};cursor:${edit?"pointer":"default"}">★</span>`).join("");
+// ---- views
+function taskCard(t){const v=D.videos.find(x=>x.id==t.v);if(!v)return"";const l=late(t);
+ return `<div class="card ${t.st=="done"?"stg d":""}"><b>${esc(v.t)}</b><div class="sub">${esc(SN(t.s))}</div>
+ <div class="row"><span class="sub">استلام ${fmt(t.start)}</span><span class="${l&&t.st!="done"?"late":"sub"}">${l&&t.st!="done"?"متأخر · ":""}تسليم ${fmt(t.due)}</span></div>
+ <div class="row"><span class="tag st-${t.st}">${stLabel[t.st]}</span>${t.who==me&&t.st!="done"?`<span>${t.st=="todo"?`<button class="btn g" onclick="setSt('${esc(t.id)}','doing')">ابدأ</button> `:""}<button class="btn" onclick="setSt('${esc(t.id)}','done')">خلصت ✓</button></span>`:""}</div></div>`}
+function homeV(u){const mine=D.tasks.filter(t=>t.who==me&&t.st!="done");const lt=mine.filter(t=>late(t)).length;const all=D.tasks.filter(t=>t.st!="done").length;
+ let h=`<div class="hero"><h2>أهلًا ${esc(u.name)}</h2><p>${u.admin?"الفريق كله في مكان واحد.":"مهامك النهاردا في مكان واحد."}</p></div>
+ <div class="stats"><div><b>${mine.length}</b>مهامي</div><div><b>${lt}</b>متأخر</div><div><b>${u.admin?all:D.videos.length}</b>${u.admin?"مهام الفريق":"فيديوهات"}</div></div><h3>الجاي عليك</h3>`;
+ h+=mine.sort((a,b)=>(a.due||"9").localeCompare(b.due||"9")).slice(0,3).map(taskCard).join("")||`<div class="empty">مفيش مهام عليك دلوقتي 🎉</div>`;
+ h+=`<h3>الفيديوهات</h3>`+(D.videos.map(v=>{const vt=D.tasks.filter(t=>t.v==v.id);const dn=vt.filter(t=>t.st=="done").length;return `<div class="card" onclick="vid='${esc(v.id)}';tab='board';R()"><b>${esc(v.t)}</b><div class="sub">${dn} من ${vt.length} مراحل</div><div class="bar"><div style="width:${vt.length?dn/vt.length*100:0}%"></div></div></div>`}).join("")||`<div class="empty">${u.admin?"لسه مفيش فيديوهات. ابدأ بإضافة أول فيديو من تبويب اللوحة.":"لسه مفيش فيديوهات."}</div>`);return h}
+function mineV(){const mine=D.tasks.filter(t=>t.who==me);const open=mine.filter(t=>t.st!="done").sort((a,b)=>(a.due||"9").localeCompare(b.due||"9"));const dn=mine.filter(t=>t.st=="done").sort((a,b)=>(b.done||"").localeCompare(a.done||""));
+ return `<h3>مهامي (${open.length})</h3>`+(open.map(taskCard).join("")||`<div class="empty">مفيش مهام عليك دلوقتي 🎉</div>`)+(dn.length?`<h3>خلصت</h3>`+dn.slice(0,10).map(taskCard).join(""):"")}
+function boardV(u){const v=D.videos.find(x=>x.id==vid)||D.videos[0];
+ let h=`<div class="vsel">${D.videos.map(x=>`<button class="${v&&x.id==v.id?"on":""}" onclick="vid='${esc(x.id)}';R()">${esc(x.t)}</button>`).join("")}${u.admin?`<button onclick="newVideo()">+ فيديو</button>`:""}</div>`;
+ if(v&&u.admin)h+=`<div style="display:flex;gap:6px;margin:0 0 10px"><button class="btn g" style="flex:1" onclick="renameVideo('${esc(v.id)}')">✏️ غيّر اسم الفيديو</button><button class="btn r" style="flex:1" onclick="delVideo('${esc(v.id)}')">🗑 احذف الفيديو</button></div>`;
+ if(!v)return h+`<div class="empty">${u.admin?"لسه مفيش فيديوهات. اضغط «+ فيديو» عشان تبدأ.":"لسه مفيش فيديوهات."}</div>`;
+ const vt=D.tasks.filter(t=>t.v==v.id);const dn=vt.filter(t=>t.st=="done").length;const cur=vt.find(t=>t.st!="done");
+ h+=`<div class="sub">${dn} من ${vt.length} مراحل خلصت</div><div class="bar"><div style="width:${vt.length?dn/vt.length*100:0}%"></div></div><br><div class="acc">`;
+ h+=D.stages.map(s=>{const t=vt.find(x=>x.s==s.id);if(!t)return"";const w=U(t.who);const l=late(t)&&t.st!="done";const key=v.id+s.id;const isOpen=key in OPEN?OPEN[key]:(cur&&cur.s==s.id);
+  const ppl=D.users.filter(p=>p.stage==s.id&&p.active||p.id==t.who);
+  return `<div class="stg ${t.st=="done"?"d":""}"><button class="sh" onclick="OPEN['${esc(key)}']=${!isOpen};R()"><span class="chev">${isOpen?"▾":"▸"}</span><span class="sn">${esc(s.name)}</span><span class="tag st-${l?"late":t.st}">${l?"متأخر":stLabel[t.st]}</span></button>
+  ${isOpen?`<div class="sb"><div class="row" style="margin:0"><span class="av"><i>${ini(w&&w.name)}</i>${w?esc(w.name):"غير معين"}</span></div><div class="row"><span class="sub">استلام: ${fmt(t.start)}</span><span class="${l?"late":"sub"}">تسليم: ${fmt(t.due)}</span></div>
+  ${u.admin?`<label class="sub">المسؤول</label><select onchange="assign('${esc(t.id)}','who',this.value)"><option value="">عين شخص</option>${ppl.map(p=>`<option value="${esc(p.id)}" ${p.id==t.who?"selected":""}>${esc(p.name)}</option>`).join("")}</select><label class="sub">وقت الاستلام</label><input type="datetime-local" value="${esc(t.start)}" onchange="assign('${esc(t.id)}','start',this.value)"><label class="sub">وقت التسليم</label><input type="datetime-local" value="${esc(t.due)}" onchange="assign('${esc(t.id)}','due',this.value)">`:""}
+  ${t.who==me&&t.st!="done"?`<div class="row">${t.st=="todo"?`<button class="btn g" onclick="setSt('${esc(t.id)}','doing')">ابدأ</button>`:"<span></span>"}<button class="btn" onclick="setSt('${esc(t.id)}','done')">خلصت ✓</button></div>`:""}</div>`:""}</div>`}).join("")+`</div>`;return h}
+function newVideo(){ask("فيديو جديد",[{l:"اسم الفيديو"}],v=>{if(v[0])act("/video",{title:v[0]})})}
+function personCard(p,u){const see=u.admin||p.id==me;const open=OPEN["p"+p.id];const st=see?pstats(p.id):null;
+ let h=`<div class="stg ${p.active?"":"off"}"><button class="sh" onclick="tog('p${esc(p.id)}')"><span class="chev">${open?"▾":"▸"}</span><span class="sn">${esc(p.name)}<div class="sub" style="font-weight:400">${p.admin?"مدير":esc(SN(p.stage))}${p.active?"":" · موقوف"}</div></span>${st&&st.avg?`<span style="white-space:nowrap">${stars(Math.round(st.avg))}<span class="sub"> ${st.avg.toFixed(1)}</span></span>`:`<span class="sub">${see?"بدون تقييم":""}</span>`}</button>`;
+ if(open&&see){h+=`<div class="sb"><div class="stats"><div><b>${st.dn}</b>خلصت</div><div><b>${st.ontime==null?"-":st.ontime+"%"}</b>في الميعاد</div><div><b>${st.open}</b>شغالة</div></div><h3 style="margin-top:10px">السجل</h3>`;
+  h+=st.ts.slice().sort((a,b)=>(b.done||b.due||"").localeCompare(a.done||a.due||"")).map(t=>{const v=D.videos.find(x=>x.id==t.v);const l=late(t);return `<div class="t"><div class="row" style="margin:0"><b style="margin:0;font-size:13px">${esc(v?v.t:"")}</b><span class="tag ${l?"st-late":"st-done"}">${t.st=="done"?(l?"سلّم متأخر":"في الميعاد"):(l?"متأخر":stLabel[t.st])}</span></div><div class="sub">${esc(SN(t.s))}</div><div class="row"><span class="sub">استلام ${fmt(t.start)}</span><span class="sub">تسليم ${fmt(t.due)}</span></div>${t.st=="done"?`<div class="row"><span class="sub">اتسلّم فعلًا ${fmt(t.done)}</span><span>${u.admin?stars(t.rating,t.id,true):stars(t.rating)}</span></div>`:""}</div>`}).join("")||`<div class="sub">مفيش مهام لسه</div>`;h+=`</div>`}
+ return h+`</div>`}
+let PUSH="off";const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent),standalone=matchMedia("(display-mode: standalone)").matches||navigator.standalone;
+const unb64u=s=>Uint8Array.from(atob(s.replace(/-/g,"+").replace(/_/g,"/")),c=>c.charCodeAt(0));
+async function pushState(){if(!("serviceWorker" in navigator&&"PushManager" in window))return"unsupported";if(isIOS&&!standalone)return"needs-install";if(window.Notification&&Notification.permission=="denied")return"denied";try{const reg=await navigator.serviceWorker.ready;return(await reg.pushManager.getSubscription())?"on":"off"}catch(e){return"unsupported"}}
+async function enablePush(){try{const perm=await Notification.requestPermission();if(perm!="granted"){PUSH=await pushState();R();return}const{key}=await api("/push/key");const reg=await navigator.serviceWorker.ready;const sub=await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:unb64u(key)});await api("/push/subscribe",sub.toJSON());PUSH="on";R()}catch(e){toast("مقدرناش نفعّل الإشعارات")}}
+async function disablePush(){try{const reg=await navigator.serviceWorker.ready;const sub=await reg.pushManager.getSubscription();if(sub){await api("/push/unsubscribe",{endpoint:sub.endpoint});await sub.unsubscribe()}PUSH="off";R()}catch(e){toast("حصل خطأ")}}
+
+const PUBP=[["fb","فيسبوك (الصفحة)"],["ig","إنستجرام (Reel)"],["li","لينكد إن"],["tt","تيك توك"]];
+let PUB={drive:"",cap:"",on:{fb:1,ig:1,li:1,tt:1},ov:{},ovOpen:{}};
+function pubSet(k,v){PUB[k]=v}
+function pubTog(p,c){PUB.on[p]=c?1:0;R()}
+function pubOv(p){PUB.ovOpen[p]=!PUB.ovOpen[p];R()}
+function pubGo(){const ok=/^https:\/\/(drive|docs)\.google\.com\//.test(PUB.drive.trim());if(!ok)return toast("حط لينك الدرايف الصح (يبدأ بـ drive.google.com)");if(!PUB.cap.trim())return toast("اكتب الكابشن الأول");if(!PUBP.some(p=>PUB.on[p[0]]))return toast("اختار منصة واحدة على الأقل");toast("معاينة بس: مفيش نشر حقيقي لحد ما نربط الحسابات")}
+function pubV(){const ST=[["فيسبوك","ok","اتنشر ١٠:٤٢ ص"],["إنستجرام (Reel)","pr","بيتعالج"],["لينكد إن","er","فشل: الفيديو أكبر من الحد المسموح"],["تيك توك","pr","جاهز، خاص لحد اعتماد التطبيق"]];
+ const bd={ok:["اتنشر","ok"],pr:["جاري","pr"],er:["فشل","er"]};
+ return `<div class="pub"><div class="card"><b>نشر فيديو جديد</b><div class="sub">ارفع الفيديو على الدرايف الأول، وبعدين حط اللينك هنا. هيتنشر كبوست كامل منفصل على كل منصة. يوتيوب بتنزله إنتم يدوي.</div>
+ <label class="sub">لينك الفيديو على جوجل درايف</label><input dir="ltr" placeholder="https://drive.google.com/file/d/..." value="${esc(PUB.drive)}" oninput="pubSet('drive',this.value)">
+ <div class="sub" style="margin-top:4px">لازم الملف يكون مشارَك مع حساب الاستوديو.</div>
+ <label class="sub">الكابشن والوصف (لكل المنصات)</label><textarea placeholder="اكتب الكابشن والهاشتاجات هنا" oninput="pubSet('cap',this.value)">${esc(PUB.cap)}</textarea>
+ <label class="sub">المنصات</label><div class="pl">${PUBP.map(p=>`<label class="${PUB.on[p[0]]?"on":""}"><input type="checkbox" ${PUB.on[p[0]]?"checked":""} onchange="pubTog('${p[0]}',this.checked)">${p[1]}</label>`).join("")}</div>
+ ${PUBP.filter(p=>PUB.on[p[0]]).map(p=>`<div style="margin-top:10px"><a class="sub" style="text-decoration:underline" onclick="pubOv('${p[0]}')">${PUB.ovOpen[p[0]]?"إلغاء":"كابشن مختلف"} لـ ${p[1]}</a>${PUB.ovOpen[p[0]]?`<textarea placeholder="سيبه فاضي عشان ياخد الكابشن العام" oninput="PUB.ov['${p[0]}']=this.value">${esc(PUB.ov[p[0]]||"")}</textarea>`:""}</div>`).join("")}
+ ${PUB.on.tt?`<div class="warn">تيك توك: البوستات هتفضل خاصة (إنت بس اللي تشوفها) لحد ما تيك توك يعتمد التطبيق، وده ممكن ياخد أيام أو أسابيع. لحد وقتها انزل على تيك توك يدوي.</div>`:""}
+ <button class="btn w" style="margin-top:14px" onclick="pubGo()">انشر على المنصات المختارة</button><div class="sub" style="margin-top:6px;text-align:center">نسخة معاينة: الزرار مش بينشر فعليا.</div></div>
+ <div class="card"><b>حالة النشر <span class="tag">أمثلة فقط</span></b><div class="sub" style="margin-bottom:6px">فيديو: ليه المولود بتجيله الصفرا</div>${ST.map(x=>{const b=bd[x[1]];return `<div class="st"><span>${x[0]}<div class="sub">${x[2]}</div></span><span class="bd ${b[1]}">${b[0]}</span></div>`}).join("")}</div></div>`}
+function accountCard(){const m={on:["الإشعارات شغالة على الجهاز ده","إيقاف","disablePush()","g"],off:["فعّل إشعارات المهام والمواعيد","تفعيل","enablePush()",""],denied:["الإشعارات متقفلة من إعدادات المتصفح. افتحها من الإعدادات.","","",""],"needs-install":["على الآيفون: افتح Share ثم Add to Home Screen، افتح ROUA من الأيقونة وبعدين فعّل الإشعارات.","","",""],unsupported:["الجهاز ده مش بيدعم الإشعارات.","","",""]}[PUSH]||["","","",""];
+ return `<div class="card"><b>🔔 الإشعارات</b><div class="sub">${m[0]}</div><div class="sub" style="margin-top:6px">بتوصلك: مهمة جديدة عليك، تسليم جاهز للاستلام، وقرب موعد التسليم.</div>${m[1]?`<div class="row"><span></span><button class="btn ${m[3]}" onclick="${m[2]}">${m[1]}</button></div>`:""}</div><div class="card"><b>حسابي</b><div class="sub" dir="ltr" style="text-align:right">${esc((U(me)||{}).email)}</div><div class="row"><span></span><button class="btn g" onclick="changePw()">تغيير كلمة السر</button></div></div>`}
+function teamV(u){return accountCard()+`<h3>الفريق (${D.users.filter(p=>p.active).length})</h3><div class="acc">`+D.users.filter(p=>p.active||u.admin).map(p=>personCard(p,u)).join("")+`</div>`}
+// ---- admin
+const tgl=(k,l,sub)=>`<div class="tg"><div>${l}${sub?`<div class="sub">${sub}</div>`:""}</div><button class="sw ${D.settings[k]!==false?"on":""}" onclick="act('/settings',{${k}:${D.settings[k]===false}})"></button></div>`;
+function adminV(){const seg=`<div style="display:flex;gap:6px;margin-bottom:12px"><button class="btn ${ADM=="team"?"":"g"}" style="flex:1" onclick="ADM='team';R()">إدارة الفريق</button><button class="btn ${ADM=="site"?"":"g"}" style="flex:1" onclick="ADM='site';R()">محتوى الموقع</button></div>`;if(ADM=="site")return seg+siteV();return seg+adminV2()}
+function adminV2(){const sec=(k,title,body)=>`<div class="stg"><button class="sh" onclick="tog('a:${k}')"><span class="chev">${OPEN["a:"+k]?"▾":"▸"}</span><span class="sn">${title}</span></button>${OPEN["a:"+k]?`<div class="sb">${body}</div>`:""}</div>`;
+ const users=D.users.map(p=>`<div class="t ${p.active?"":"d"}"><div class="row" style="margin:0"><b style="margin:0;font-size:14px">${esc(p.name)}${p.admin?" · مدير":""}${p.active?"":" · موقوف"}</b><span class="tag">${esc(SN(p.stage))||"بدون دور"}</span></div><div class="sub" dir="ltr" style="text-align:right">${esc(p.email)}</div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px"><button class="btn g" onclick="editUser('${esc(p.id)}')">تعديل الاسم والدور</button><button class="btn g" onclick="resetPw('${esc(p.id)}')">كلمة سر جديدة</button>${p.id!=me?`<button class="btn g" onclick="act('/user/admin',{id:'${esc(p.id)}',admin:${!p.admin}})">${p.admin?"إلغاء المدير":"خليه مدير"}</button><button class="btn ${p.active?"r":""}" onclick="act('/user/active',{id:'${esc(p.id)}',active:${!p.active}})">${p.active?"إيقاف":"تفعيل"}</button><button class="btn r" onclick="delUser('${esc(p.id)}')">🗑 حذف</button>`:""}</div></div>`).join("")+`<button class="btn w" onclick="addUser()">+ إضافة عضو</button>`;
+ const vids=D.videos.map(v=>`<div class="t"><div class="row" style="margin:0"><b style="margin:0;font-size:14px">${esc(v.t)}</b><span class="sub">${D.tasks.filter(t=>t.v==v.id&&t.st=="done").length}/${D.stages.length}</span></div><div style="display:flex;gap:6px;margin-top:8px"><button class="btn g" onclick="renameVideo('${esc(v.id)}')">تغيير الاسم</button><button class="btn r" onclick="delVideo('${esc(v.id)}')">حذف</button></div></div>`).join("")+`<button class="btn w" onclick="newVideo()">+ فيديو جديد</button>`;
+ const stg=D.stages.map((s,i)=>`<div class="t"><div class="row" style="margin:0"><b style="margin:0;font-size:14px">${i+1}. ${esc(s.name)}</b><span style="display:flex;gap:4px"><button class="btn g" ${i?"":"disabled"} onclick="act('/stage/move',{id:'${esc(s.id)}',dir:-1})">▲</button><button class="btn g" ${i<D.stages.length-1?"":"disabled"} onclick="act('/stage/move',{id:'${esc(s.id)}',dir:1})">▼</button></span></div><div style="display:flex;gap:6px;margin-top:8px"><button class="btn g" onclick="renameStage('${esc(s.id)}')">تغيير الاسم</button><button class="btn r" onclick="delStage('${esc(s.id)}')">حذف</button></div></div>`).join("")+`<button class="btn w" onclick="ask('مرحلة جديدة',[{l:'اسم المرحلة'}],v=>{if(v[0])act('/stage/add',{name:v[0]})})">+ مرحلة جديدة</button><p class="sub">ترتيب المراحل هو ترتيب التسليم بين الناس. المرحلة الجديدة بتتضاف لكل الفيديوهات الحالية.</p>`;
+ const notif=tgl("notify_assigned","مهمة جديدة عليه","لما تتعين مهمة لشخص")+tgl("notify_handoff","تسليم جاهز للاستلام","لما المرحلة اللي قبله تخلص")+tgl("notify_deadline","قرب موعد التسليم","قبل الموعد بالمدة دي")+`<label class="sub">التنبيه قبل الموعد بـ</label><select onchange="act('/settings',{reminder_hours:+this.value})">${[1,2,3,6,12,24].map(h=>`<option value="${h}" ${+D.settings.reminder_hours==h?"selected":""}>${h} ${h==1?"ساعة":"ساعات"}</option>`).join("")}</select><div class="row"><span></span><button class="btn g" onclick="act('/notify/test',{})">ابعتلي إشعار تجريبي</button></div>`;
+ const rated=D.users.filter(p=>p.active).map(p=>({p,s:pstats(p.id)})).sort((a,b)=>(b.s.avg||0)-(a.s.avg||0));
+ const rat=rated.map(({p,s})=>`<div class="t"><div class="row" style="margin:0"><b style="margin:0;font-size:14px">${esc(p.name)}</b><span>${s.avg?stars(Math.round(s.avg))+` <span class="sub">${s.avg.toFixed(1)} (${s.nr})</span>`:`<span class="sub">بدون تقييم</span>`}</span></div><div class="sub">في الميعاد ${s.ontime==null?"-":s.ontime+"%"} · خلصت ${s.dn}</div></div>`).join("")+`<p class="sub">التقييم بيتحط من سجل كل شخص في تبويب الفريق، على كل مهمة خلصت.</p>`;
+ const set=`<label class="sub">اسم المنصة</label><input id="pn" value="${esc(D.settings.platform_name||"ROUA")}" onchange="act('/settings',{platform_name:this.value})"><label class="sub" style="display:flex;gap:8px;align-items:center;margin-top:10px"><input type="checkbox" style="width:auto" ${D.settings.setup_open!==false?"checked":""} onchange="act('/settings',{setup_open:this.checked})">التسجيل لأول مرة مفتوح (اقفله بعد ما الكل يسجل)</label><p class="sub">التوقيت: القاهرة. الاسم بيظهر في الأعلى.</p>`;
+ return `<h3>الإدارة</h3><div class="acc">${sec("users","👥 المستخدمين ("+D.users.length+")",users)}${sec("videos","🎬 الفيديوهات ("+D.videos.length+")",vids)}${sec("stages","🧩 المراحل ("+D.stages.length+")",stg)}${sec("rat","⭐ التقييمات",rat)}${sec("notif","🔔 الإشعارات",notif)}${sec("set","⚙️ إعدادات المنصة",set)}</div>`}
+function addUser(){ask("عضو جديد",[{l:"الاسم"},{l:"الإيميل",t:"email",dir:"ltr"},{l:"المرحلة",opts:stageOpts(true)}],async v=>{if(!v[0]||!v[1])return toast("الاسم والإيميل مطلوبين");const r=await act("/user",{name:v[0],email:v[1],stage:v[2]||null});if(r)shown("اتضاف "+v[0],`كلمة السر المبدئية (بتظهر مرة واحدة بس):<br><b dir="ltr" style="font-size:20px;user-select:all">${esc(r.initial_password)}</b><br>ابعتها له في رسالة خاصة. هيغيرها أول ما يدخل.`)})}
+function editUser(id){const p=U(id);ask("تعديل "+p.name,[{l:"الاسم",v:p.name},{l:"الدور (المرحلة اللي بيشتغل عليها)",opts:stageOpts(true),v:p.stage||""}],v=>act("/user/update",{id,name:v[0],stage:v[1]||null}))}
+async function resetPw(id){if(!confirm("تعمل كلمة سر جديدة؟ هيتسجل خروجه من كل الأجهزة."))return;const r=await act("/user/reset",{id});if(r)shown("كلمة السر الجديدة لـ "+U(id).name,`بتظهر مرة واحدة بس:<br><b dir="ltr" style="font-size:20px;user-select:all">${esc(r.initial_password)}</b>`)}
+function renameVideo(id){ask("اسم الفيديو",[{l:"الاسم",v:D.videos.find(v=>v.id==id).t}],v=>{if(v[0])act("/video/rename",{id,title:v[0]})})}
+function delVideo(id){const v=D.videos.find(x=>x.id==id);if(confirm("تحذف فيديو «"+(v?v.t:"")+"» بكل مهامه وتقييماته؟ مينفعش ترجعه."))act("/video/delete",{id}).then(()=>{vid=null;R()})}
+function delUser(id){const p=U(id);if(confirm("تحذف "+p.name+" نهائي؟ مهامه هتفضل من غير شخص. لو عايز تمنعه بس استخدم «إيقاف»."))act("/user/delete",{id})}
+function renameStage(id){ask("اسم المرحلة",[{l:"الاسم",v:SN(id)}],v=>{if(v[0])act("/stage/rename",{id,name:v[0]})})}
+function delStage(id){if(confirm("تحذف المرحلة دي من كل الفيديوهات؟ مهامها وتقييماتها هتتمسح."))act("/stage/delete",{id})}
+// ---- shell
+function R(){const a=document.getElementById("app");
+ if(!me||!U(me)){a.innerHTML=`<div class="login"><div class="logo"><img class="lk" src="assets/lockup.png" alt="ROUA رؤى"></div><div class="sub" style="margin-top:8px">ادخل بالإيميل اللي اتدعيت بيه</div><input id="em" placeholder="الإيميل" type="email" dir="ltr" autocomplete="username"><input id="pw" placeholder="كلمة السر" type="password" autocomplete="current-password" onkeydown="if(event.key=='Enter')login()"><button class="btn" onclick="login()">دخول</button><button class="btn g" style="margin-top:10px;width:100%" onclick="firstTime()">أول مرة؟ سجّل كلمة السر بتاعتك</button><a href="/" class="btn g" style="display:block;text-align:center;margin-top:10px;text-decoration:none">← الرجوع لموقع ROUA</a><p class="sub">نسيت كلمة السر؟ اطلب من المدير يعمل لك واحدة جديدة.</p>${MOCK?'<p class="sub">تجريبي: mona@team.co أو admin@team.co</p>':""}</div>`;return}
+ const u=U(me);if(MUST&&!document.getElementById("ov").innerHTML){setTimeout(()=>changePw(true),50)}
+ const tabs=[["home","الرئيسية"],["mine","مهامي"],["board","اللوحة"],["team","الفريق"],["pub","النشر"],...(u.admin?[["admin","الإدارة"]]:[])];if(!tabs.find(t=>t[0]==tab))tab="home";
+ const body={home:()=>homeV(u),mine:mineV,board:()=>boardV(u),team:()=>teamV(u),pub:pubV,admin:adminV}[tab]();
+ a.innerHTML=`${MOCK?'<div class="ribbon">نسخة تجريبية محلية</div>':""}<header><div class="logo"><img class="lk" src="assets/lockup.png" alt="ROUA رؤى"><small style="border-inline-start:1px solid var(--line);padding-inline-start:8px">منصة الفريق</small></div><div class="me">${esc(u.name)}${u.admin?" · مدير":""}<a href="/" style="margin-inline-end:10px;text-decoration:none">🏠 الموقع</a><a onclick="out()">خروج</a></div></header><main>${body}</main><div class="tabs">${tabs.map(t=>`<button class="${tab==t[0]?"on":""}" onclick="tab='${t[0]}';R();scrollTo(0,0)">${t[1]}</button>`).join("")}</div>`}
+if("serviceWorker" in navigator&&!MOCK)navigator.serviceWorker.register("sw.js").catch(()=>{});
+document.addEventListener("visibilitychange",()=>{if(!document.hidden&&me&&!MOCK&&!document.getElementById("ov").innerHTML)load()});
+setInterval(()=>{const a=document.activeElement;if(!document.hidden&&me&&!MOCK&&!document.getElementById("ov").innerHTML&&!(a&&/INPUT|SELECT/.test(a.tagName)))load()},60000);
+load();pushState().then(x=>{PUSH=x;if(me)R()});
+</script><script src="site-admin.js"></script></body></html>

@@ -1,0 +1,11 @@
+{
+  // ROUA: serves the static site (repo root, minus .assetsignore) and the /api Worker (login, team tool, site content) with a 15-minute reminder cron.
+  // Secrets (set in Cloudflare, never in this file): DATABASE_URL, VAPID_PRIVATE_JWK.
+  // Check how the existing site is deployed before using this name, so the live site is not replaced by mistake.
+  "name": "roua",
+  "main": "worker/src/index.js",
+  "compatibility_date": "2026-11-01",
+  "assets": { "directory": ".", "binding": "ASSETS", "run_worker_first": ["/api/*"] },
+  // The 15-minute reminder cron is added back once the old copy is switched off (two copies on one DB would double every reminder).
+  "vars": { "VAPID_PUBLIC": "BNSBIxK-4sxllGxoZYap0bt_bCyNC4SBNB9eoWEAVo6Ko7Nc7oGU8ErwGysT-rl_9A9KZgzahELiF_QmZz6926w", "VAPID_SUBJECT": "https://zwicky.abdullah-elmassry.workers.dev" }
+}

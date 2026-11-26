@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>اطلب خدمتك — ROUA</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/site-cms.js"></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0A2F27">
+<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ROUA"><meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="/app/assets/icon-192.png">
+</head>
+<body>
+
+<div data-demo-only="1" class="demo-ribbon"><strong>نسخة تجريبية للعرض فقط</strong> — الأعمال والأسعار أمثلة مؤقتة</div>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="logo" href="index.html">
+      <img class="logo-lockup" src="assets/img/roua-lockup-light.png" alt="ROUA رؤى">
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="works.html">الأعمال</a>
+      <a href="series.html">السلاسل</a>
+      <a href="reels.html">ريلز</a>
+      <a href="packages.html">الباقات</a>
+      <a href="team.html">الفريق</a>
+    </nav>
+    <a data-cms="nav_cta" class="btn primary small nav-cta" href="request.html">اطلب خدمتك</a>
+    <a class="team-login" href="/app/">دخول الفريق</a>
+    <button class="menu-btn" aria-label="القائمة">☰</button>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html">الرئيسية</a>
+    <a href="works.html">الأعمال</a>
+    <a href="series.html">السلاسل</a>
+    <a href="reels.html">ريلز</a>
+    <a href="packages.html">الباقات</a>
+    <a href="team.html">الفريق</a>
+    <a class="btn primary block" href="request.html">اطلب خدمتك</a>
+    <a class="team-login-m" href="/app/">دخول الفريق والإدارة</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="page-intro">
+    <h1 data-cms="request_h1">اطلب خدمتك</h1>
+    <p data-cms="request_p">احكِ لنا عن مشروعك وسيتواصل معك فريق الشركة. أو راسلنا مباشرة على واتساب.</p>
+  </div>
+
+  <div class="form-grid">
+    <form data-cms-form="request" class="form" data-demo="نسخة تجريبية — لم يُرسل الطلب بعد. الإرسال الفعلي يُفعّل عند الإطلاق">
+      <h2>بيانات المشروع</h2>
+      <div class="row">
+        <div class="field">
+          <label for="name">الاسم الكامل</label>
+          <input id="name" type="text" placeholder="اسمك" required>
+        </div>
+        <div class="field">
+          <label for="company">ROUA / الجهة</label>
+          <input id="company" type="text" placeholder="شركتك">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="phone">رقم الهاتف</label>
+          <input id="phone" type="tel" placeholder="01xxxxxxxxx" required>
+        </div>
+        <div class="field">
+          <label for="email">البريد الإلكتروني</label>
+          <input id="email" type="email" placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="service">نوع الخدمة</label>
+          <select id="service">
+            <option>فيديو إعلاني</option>
+            <option>سلسلة / محتوى دوري</option>
+            <option>فيديو موشن جرافيك</option>
+            <option>فيلم قصير / محتوى قصصي</option>
+            <option>أخرى</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="budget">الميزانية التقريبية</label>
+          <select id="budget">
+            <option>أقل من ١٠ آلاف جنيه</option>
+            <option>١٠ — ٥٠ ألف جنيه</option>
+            <option>أكثر من ٥٠ ألف جنيه</option>
+            <option>غير محددة بعد</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="details">تفاصيل المشروع</label>
+        <textarea id="details" placeholder="احكِ لنا عن فكرتك: الهدف، الجمهور، والمدة المتوقعة..."></textarea>
+      </div>
+      <button class="btn primary block" type="submit">أرسل الطلب</button>
+      <p class="player-note">بإرسالك توافق على تواصل فريق الشركة معك بخصوص طلبك فقط.</p>
+    </form>
+
+    <aside>
+      <div class="side-card">
+        <h3>تفضّل واتساب؟</h3>
+        <p>راسلنا مباشرة وسنرد عليك في أقرب وقت.</p>
+        <a data-cms-link="whatsapp" class="wa-btn" href="https://wa.me/201000000000" target="_blank" rel="noopener">تواصل عبر واتساب</a>
+        <p data-demo-only="1" class="player-note">رقم مؤقت للديمو — يُستبدل برقم الشركة الرسمي.</p>
+      </div>
+      <div class="side-card">
+        <h3>ماذا بعد إرسال الطلب؟</h3>
+        <ul class="steps">
+          <li><b>١</b>نراجع تفاصيل مشروعك</li>
+          <li><b>٢</b>نتواصل معك خلال ٢٤ ساعة</li>
+          <li><b>٣</b>اجتماع تعارف واتفاق على النطاق</li>
+          <li><b>٤</b>نبدأ الإنتاج</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom" style="border:none;margin:0;padding:0">
+      <span>© <span data-year>2026</span> ROUA — جميع الحقوق محفوظة</span>
+      <span data-demo-only="1">نسخة تجريبية — كل المحتوى مؤقت لحين الاعتماد</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
