@@ -378,6 +378,7 @@ button{font-family:inherit;cursor:pointer}
 .socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
 .site-footer .socials a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid #F4B74966;border-radius:12px;color:#F4B749;background:transparent;transition:background .15s,color .15s}
 .site-footer .socials a:hover,.site-footer .socials a:focus-visible{background:#F4B749;color:#03301F;border-color:#F4B749}
+@media(max-width:480px){.socials{gap:6px}.site-footer .socials a{width:42px;height:42px;border-radius:11px}}
 @media (max-width:699px){.footer-grid{grid-template-columns:1fr;gap:16px}.footer-grid>div:not(:first-child){display:flex;flex-wrap:wrap;gap:2px 18px;align-items:center}.footer-grid>div:not(:first-child) h4{flex:0 0 100%;margin-bottom:2px}.site-footer .footer-grid>div:not(:first-child) a{display:inline-block;padding:8px 0}}
 .footer-bottom{
   border-top:1px solid #F4B74933;margin-top:26px;padding-top:16px;
