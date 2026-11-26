@@ -192,7 +192,7 @@
     $$('[data-cms]').forEach(function (e) { var v = T[e.getAttribute('data-cms')]; if (v) setText(e, v); });
     $$('[data-cms-link]').forEach(function (a) {
       var k = a.getAttribute('data-cms-link'), h = href(k, L[k]);
-      if (h) { a.href = h; if (k !== 'email') { a.target = '_blank'; a.rel = 'noopener'; } else a.textContent = L[k]; }
+      if (h) { a.href = h; if (k !== 'email') { a.target = '_blank'; a.rel = 'noopener'; } else if (!a.querySelector('svg')) a.textContent = L[k]; }
       else if (SITE.hide_demo && (a.getAttribute('href') || '#') === '#') a.style.display = 'none';
     });
     var logo = img(I.logo);
