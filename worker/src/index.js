@@ -2,6 +2,7 @@
 // Secrets/vars: DATABASE_URL (secret), VAPID_PRIVATE_JWK (secret), VAPID_PUBLIC (var), VAPID_SUBJECT (var).
 import { neon } from "@neondatabase/serverless";
 import { handlePublic, handleAdmin } from "./site.js";
+import { handlePublish, advanceAll } from "./publish.js";
 
 const enc = new TextEncoder();
 const hex = b => [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join("");
@@ -67,7 +68,7 @@ async function deadlineReminders(sql, env) {
 }
 
 export default {
-  async scheduled(event, env) { const sql = neon(env.DATABASE_URL); await deadlineReminders(sql, env); await sql`delete from notifications where created_at < now() - interval '30 days'`; await sql`delete from sessions where expires_at < now()`; await sql`delete from login_attempts where at < now() - interval '1 day'`; },
+  async scheduled(event, env) { const sql = neon(env.DATABASE_URL); await deadlineReminders(sql, env); await sql`delete from notifications where created_at < now() - interval '30 days'`; await sql`delete from sessions where expires_at < now()`; await sql`delete from login_attempts where at < now() - interval '1 day'`; try { if (env.META_PAGE_TOKEN) await advanceAll(sql, env); } catch (_) {} },
 
   async fetch(req, env) {
     const url = new URL(req.url), p = url.pathname;
@@ -116,6 +117,7 @@ export default {
       return json({ ok: 1 }, 200, { "set-cookie": `zs=${t}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=2592000` });
     }
     if (!me) return json({ error: "auth" }, 401);
+    { const r = await handlePublish(p, sql, body, env, me); if (r) return r; }
     if (p === "/api/logout") { await sql`delete from sessions where token_hash=${await sha(cookie)}`; return json({ ok: 1 }, 200, { "set-cookie": "zs=; Max-Age=0; Path=/" }); }
 
     if (p === "/api/password" && req.method === "POST") {
@@ -253,7 +255,7 @@ export default {
       await sql.transaction([sql`delete from tasks where stage=${body.id}`, sql`delete from stages where id=${body.id}`, sql`update users set stage=null where stage=${body.id}`]); return json({ ok: 1 });
     }
     if (p === "/api/settings") {
-      const allow = { platform_name: v => String(v).trim().slice(0, 40) || "ROUA", reminder_hours: v => Math.min(24, Math.max(1, Math.round(Number(v)) || 2)), notify_assigned: v => !!v, notify_handoff: v => !!v, notify_deadline: v => !!v, setup_open: v => !!v };
+      const allow = { platform_name: v => String(v).trim().slice(0, 40) || "ROUA", reminder_hours: v => Math.min(24, Math.max(1, Math.round(Number(v)) || 2)), notify_assigned: v => !!v, notify_handoff: v => !!v, notify_deadline: v => !!v, setup_open: v => !!v, publish_live: v => !!v };
       for (const k of Object.keys(allow)) if (k in body) await sql`insert into settings(k,v) values(${k},${JSON.stringify(allow[k](body[k]))}) on conflict (k) do update set v=excluded.v`;
       return json({ ok: 1 });
     }

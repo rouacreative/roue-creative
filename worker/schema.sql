@@ -27,3 +27,6 @@ alter table users add column if not exists claimable bool default false;
 
 alter table site_items drop constraint if exists site_items_kind_check;
 alter table site_items add constraint site_items_kind_check check (kind in ('work','series','episode','package','member','reel'));
+
+create table if not exists posts(id uuid primary key default gen_random_uuid(), group_id text not null, user_id uuid references users on delete set null, platform text not null check (platform in ('fb','ig')), mode text not null default 'test' check (mode in ('test','live')), status text not null default 'queued', video_url text not null, caption text default '', remote_id text, error text, meta jsonb not null default '{}', created_at timestamptz default now(), updated_at timestamptz default now());
+create index if not exists posts_group on posts(group_id);
