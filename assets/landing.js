@@ -7,7 +7,7 @@
   root.classList.add('lp-js');
 
   /* hero headline: word by word on load */
-  var h1 = document.querySelector('.lp-hero h1');
+  var h1 = document.querySelector('.lp-copy h1');
   if (h1 && !h1.querySelector('span')) {
     var out = '', n = 0;
     h1.childNodes.forEach(function (nd) {
@@ -16,6 +16,9 @@
     });
     h1.innerHTML = out;
   }
+
+  var bigEl = document.querySelector('.lp-big');
+  if (bigEl && !bigEl.querySelector('.sw')) bigEl.innerHTML = bigEl.textContent.trim().split(/\s+/).map(function (w) { return '<span class="sw">' + w + '</span>'; }).join(' ');
 
   /* reveal targets, staggered inside each parent */
   var sel = '.lp-head, .lp-card, .lp-steps li, .lp-why > div, .lp-points li, .lp-alt .section-title, .work, .lp-cta .wrap > *, .lp-pills li';
@@ -37,13 +40,36 @@
 
   /* scroll: progress bar, header state, hero parallax, steps line */
   var bar = document.querySelector('.lp-progress i'), hdr = document.querySelector('.site-header'),
-      hero = document.querySelector('.lp-hero'), steps = document.querySelector('.lp-steps'), tick = false;
+      stage = document.querySelector('.lp-stage'), pin = document.querySelector('.lp-pin'), big = document.querySelector('.lp-big'), steps = document.querySelector('.lp-steps'), tick = false;
   function frame() {
     tick = false;
     var y = window.pageYOffset, h = document.documentElement.scrollHeight - window.innerHeight;
     if (bar) bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, y / h) : 0) + ')';
     if (hdr) hdr.classList.toggle('scrolled', y > 24);
-    if (hero && y < window.innerHeight * 1.2) hero.style.setProperty('--py', (y * 0.18).toFixed(1) + 'px'), hero.style.setProperty('--gy', (y * -0.08).toFixed(1) + 'px');
+    if (stage && pin) {
+      var vh = window.innerHeight, sr = stage.getBoundingClientRect(), tot = sr.height - vh,
+          p = tot > 0 ? Math.max(0, Math.min(1, -sr.top / tot)) : 1,
+          e = 1 - Math.pow(1 - Math.min(1, p / 0.62), 3),
+          t2 = Math.max(0, Math.min(1, (p - 0.5) / 0.3)),
+          mob = window.innerWidth < 700, ix = mob ? 17 : 20, iy = mob ? 15 : 13;
+      pin.style.setProperty('--e', e.toFixed(3));
+      pin.style.setProperty('--t2', t2.toFixed(3));
+      pin.style.setProperty('--ix', (ix * (1 - e)).toFixed(2) + '%');
+      pin.style.setProperty('--iy', (iy * (1 - e)).toFixed(2) + '%');
+      pin.style.setProperty('--rad', (26 * (1 - e)).toFixed(1) + 'px');
+      pin.style.setProperty('--sc', (1.18 - 0.18 * e).toFixed(3));
+      pin.style.setProperty('--py', (p * -vh * 0.06).toFixed(1) + 'px');
+    }
+    if (big) {
+      var ws = big.querySelectorAll('.sw'), br = big.getBoundingClientRect(),
+          q = (window.innerHeight * 0.85 - br.top) / (br.height + window.innerHeight * 0.25);
+      q = Math.max(0, Math.min(1, q)); var upto = Math.round(q * ws.length * 1.15);
+      for (var k = 0; k < ws.length; k++) ws[k].classList.toggle('on', k < upto);
+    }
+    document.querySelectorAll('.work .thumb').forEach(function (t) {
+      var r = t.getBoundingClientRect(); if (r.bottom < 0 || r.top > window.innerHeight) return;
+      var img = t.querySelector('img'); if (img) img.style.setProperty('--ty', ((r.top + r.height / 2 - window.innerHeight / 2) * -0.07).toFixed(1) + 'px');
+    });
     if (steps) {
       var r = steps.getBoundingClientRect(), p = (window.innerHeight * 0.75 - r.top) / (r.height + window.innerHeight * 0.2);
       steps.style.setProperty('--p', Math.max(0, Math.min(1, p)).toFixed(3));
