@@ -477,3 +477,7 @@ img.logo-mark{width:36px;height:36px;object-fit:contain;border:0;flex-shrink:0}
 .logo .logo-lockup{margin:0}
 .footer-brand img.logo-lockup{width:auto;height:auto;max-width:280px;max-height:84px}
 h1,h2,h3,h4,.btn,.logo-text b{font-weight:700}
+.site-footer a.foot-cta{display:inline-block;background:#F4B749;color:#03301F;font-weight:700;padding:9px 20px;border-radius:999px;border:0}
+.site-footer a.foot-cta:hover{background:#FEF6B5;color:#03301F}
+@media(max-width:699px){.footer-grid>div:not(:first-child) .socials{flex:0 0 100%;margin-top:8px}}
+@media(max-width:699px){.site-footer .footer-grid>div:not(:first-child) .socials a{display:inline-flex;padding:0;width:42px;height:42px}.site-footer .footer-grid>div:not(:first-child) a.foot-cta{padding:9px 22px}.footer-grid>div:not(:first-child) .socials{flex-wrap:nowrap}}
