@@ -51,7 +51,7 @@
           p = tot > 0 ? Math.max(0, Math.min(1, -sr.top / tot)) : 1,
           e = 1 - Math.pow(1 - Math.min(1, p / 0.62), 3),
           t2 = Math.max(0, Math.min(1, (p - 0.5) / 0.3)),
-          mob = window.innerWidth < 700, ix = mob ? 17 : 20, iy = mob ? 15 : 13;
+          mob = window.innerWidth < 700, ix = mob ? 17 : 20, iy = mob ? 15 : 17;
       pin.style.setProperty('--e', e.toFixed(3));
       pin.style.setProperty('--t2', t2.toFixed(3));
       pin.style.setProperty('--ix', (ix * (1 - e)).toFixed(2) + '%');

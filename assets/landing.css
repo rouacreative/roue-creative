@@ -118,14 +118,14 @@
 .lp-js .lp-copy{justify-content:center;height:100%}
 .lp-js .lp-more{max-height:calc(var(--t2) * 340px);opacity:var(--t2);overflow:hidden;transform:translateY(calc((1 - var(--t2)) * 18px))}
 .lp-js .lp-copy h1{font-size:calc(30px + var(--e) * 8px)}
-.lp-js .lp-kick{display:inline-block;position:absolute;top:calc(15% - 52px);left:50%;transform:translateX(-50%);opacity:calc(1 - var(--e) * 3);z-index:3;margin:0;white-space:nowrap;color:#8a5a00;border-color:#8a5a0066;top:max(78px,calc(15% - 48px))}
+.lp-js .lp-kick{display:inline-block;position:absolute;top:calc(15% - 52px);left:50%;transform:translateX(-50%);opacity:calc(1 - var(--e) * 3);z-index:3;margin:0;white-space:nowrap;color:#8a5a00;border-color:#8a5a0066;top:84px}
 .lp-js .lp-hint{display:flex;flex-direction:column;align-items:center;gap:8px;position:absolute;bottom:calc(15% - 52px);left:50%;transform:translateX(-50%);opacity:calc(1 - var(--e) * 4);font-size:12px;color:#5E7A70;z-index:3;bottom:max(18px,calc(15% - 50px))}
 .lp-hint i{width:2px;height:26px;background:linear-gradient(#8a5a00,transparent);animation:lpHint 1.6s ease-in-out infinite}
 @keyframes lpHint{0%{transform:scaleY(.2);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(.2);transform-origin:bottom}}
 .lp-js .lp-shade{opacity:calc(.6 + var(--e) * .4)}
 @media (min-width:700px){
   .lp-pin{height:640px}
-  .lp-js .lp-pin{--ix:20%;--iy:13%}
+  .lp-js .lp-pin{--ix:20%;--iy:17%}
   .lp-copy h1{font-size:46px}
   .lp-js .lp-copy h1{font-size:calc(38px + var(--e) * 14px)}
   .lp-more p{font-size:17px}
