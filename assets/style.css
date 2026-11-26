@@ -481,3 +481,7 @@ h1,h2,h3,h4,.btn,.logo-text b{font-weight:700}
 .site-footer a.foot-cta:hover{background:#FEF6B5;color:#03301F}
 @media(max-width:699px){.footer-grid>div:not(:first-child) .socials{flex:0 0 100%;margin-top:8px}}
 @media(max-width:699px){.site-footer .footer-grid>div:not(:first-child) .socials a{display:inline-flex;padding:0;width:42px;height:42px}.site-footer .footer-grid>div:not(:first-child) a.foot-cta{padding:9px 22px}.footer-grid>div:not(:first-child) .socials{flex-wrap:nowrap}}
+.site-footer a.foot-ico{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;padding:0;border:1px solid #F4B74966;border-radius:11px;color:#F4B749}
+.site-footer a.foot-ico:hover{background:#F4B749;color:#03301F}
+.site-footer a.foot-call{display:inline-block;padding:9px 22px;border:1px solid #F4B749;border-radius:999px;color:#F4B749;font-weight:700}
+@media(max-width:699px){.site-footer .footer-grid>div:not(:first-child) a.foot-ico{display:inline-flex;padding:0}.site-footer .footer-grid>div:not(:first-child) a.foot-call{padding:9px 22px}}

@@ -9,7 +9,7 @@ export const FILTERS = { ads: "إعلانات", series: "سلاسل", shorts: "�
 export const FONTS = { "": "الافتراضي", "Cairo": "Cairo", "Tajawal": "Tajawal", "Almarai": "Almarai", "Noto Sans Arabic": "Noto Sans Arabic", "IBM Plex Sans Arabic": "IBM Plex Sans Arabic", "Readex Pro": "Readex Pro" };
 const BUILTIN = ["desk", "drama", "falcon", "grandma", "headphones", "hero", "kids", "product", "scifi"].map(n => `assets/img/${n}.jpg`);
 export const THEME_DEFAULT = { bg: "#FBF7EE", ink: "#053D28", accent: "#085436", dark: "#03301F", card: "#ffffff", font: "" };
-const LINKS = ["youtube", "facebook", "instagram", "tiktok", "linkedin", "whatsapp", "email"];
+const LINKS = ["youtube", "facebook", "instagram", "tiktok", "linkedin", "whatsapp", "phone", "email"];
 export const catsOf = site => (Array.isArray(site.categories) && site.categories.length ? site.categories : Object.entries(FILTERS).map(([id, name]) => ({ id, name })));
 const SITE_DEFAULT = { theme: {}, texts: {}, images: {}, links: {}, hide_demo: false, managed: {} };
 
@@ -112,7 +112,7 @@ export async function handleAdmin(req, url, p, sql, body, env) {
       s.theme = t;
     }
     if (body.texts) { const t = {}; for (const k of Object.keys(DEF.texts)) { const v = clip(body.texts[k], 600); if (v && v !== DEF.texts[k][2]) t[k] = v; } s.texts = t; }
-    if (body.links) { const l = {}; for (const k of LINKS) { const v = clip(body.links[k], 200); if (v) { if (k === "email" ? !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) : (k === "whatsapp" ? !/^(\+?\d[\d\s-]{6,19}|https:\/\/wa\.me\/\d+.*)$/.test(v) : !/^https:\/\/\S+$/.test(v))) return json({ error: "bad_link", field: k }, 400); l[k] = v; } } s.links = l; }
+    if (body.links) { const l = {}; for (const k of LINKS) { const v = clip(body.links[k], 200); if (v) { if (k === "email" ? !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) : (k === "phone" ? !/^\+?\d[\d\s-]{6,19}$/.test(v) : k === "whatsapp" ? !/^(\+?\d[\d\s-]{6,19}|https:\/\/wa\.me\/\d+.*)$/.test(v) : !/^https:\/\/\S+$/.test(v))) return json({ error: "bad_link", field: k }, 400); l[k] = v; } } s.links = l; }
     if (body.images) { const im = {}; for (const k of ["logo"]) { const v = await imgOk(sql, body.images[k]); if (v === null) return json({ error: "bad_image" }, 400); if (v) im[k] = v; } s.images = im; }
     if (Array.isArray(body.categories)) {
       const seen = new Set(), out = [];

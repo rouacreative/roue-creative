@@ -33,6 +33,7 @@
   function href(k, v) {
     v = String(v || '').trim(); if (!v) return '';
     if (k === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? 'mailto:' + v : '';
+    if (k === 'phone') { var p = v.replace(/[^\d+]/g, ''); return p.replace(/\D/g, '').length > 6 ? 'tel:' + p : ''; }
     if (k === 'whatsapp') { if (/^https:\/\/wa\.me\/\d+/.test(v)) return v; var d = v.replace(/\D/g, ''); return d.length > 6 ? 'https://wa.me/' + d : ''; }
     return /^https:\/\/\S+$/.test(v) ? v : '';
   }
@@ -192,7 +193,7 @@
     $$('[data-cms]').forEach(function (e) { var v = T[e.getAttribute('data-cms')]; if (v) setText(e, v); });
     $$('[data-cms-link]').forEach(function (a) {
       var k = a.getAttribute('data-cms-link'), h = href(k, L[k]);
-      if (h) { a.href = h; if (k !== 'email') { a.target = '_blank'; a.rel = 'noopener'; } else if (!a.querySelector('svg')) a.textContent = L[k]; }
+      if (h) { a.href = h; if (k !== 'email' && k !== 'phone') { a.target = '_blank'; a.rel = 'noopener'; } else if (!a.querySelector('svg')) a.textContent = L[k]; }
       else if (SITE.hide_demo && (a.getAttribute('href') || '#') === '#') a.style.display = 'none';
     });
     var logo = img(I.logo);
