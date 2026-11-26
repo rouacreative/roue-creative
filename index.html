@@ -8,6 +8,7 @@
 <meta name="description" content="رُؤَى شركة متخصصة في حلول التكنولوجيا للأعمال: منصات وتطبيقات، حلول ذكاء اصطناعي، وإنتاج مرئي وإعلاني.">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/landing.css">
 <script src="assets/site-cms.js"></script>
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#03301F">
@@ -48,27 +49,84 @@
   </div>
 </header>
 
-<section class="hero">
-  <div class="wrap fade-in">
-    <span data-cms="hero_tag" class="tag">حكايات نصنعها معًا</span>
-    <h1 data-cms="hero_title">خيالنا على الشاشة.<br>وقصتك هي الجاية.</h1>
-    <p data-cms="hero_text">إنتاجات أصلية تستحق المشاهدة، وفيديوهات بتحوّل أفكار علامتك التجارية لحكاية.</p>
-    <div class="hero-actions">
-      <a data-cms="hero_btn1" class="btn primary" href="series.html">▷ شاهد إنتاجاتنا</a>
-      <a data-cms="hero_btn2" class="btn ghost" href="request.html">اطلب فيديو لشركتك</a>
+<section class="lp-hero">
+  <div class="lp-hero-bg" aria-hidden="true"></div>
+  <div class="wrap lp-hero-in fade-in">
+    <span class="lp-tag" data-cms="hero_tag">شريكك في الأعمال</span>
+    <h1 data-cms="hero_title">نصنع التكنولوجيا<br>التي تصنع الفارق.</h1>
+    <p data-cms="hero_text">في رُؤَى نحوّل رؤية كل شركة إلى منتج رقمي متقن وحضور مرئي لا يُنسى: منصات وتطبيقات، حلول ذكاء اصطناعي، وإنتاج مرئي وإعلاني.</p>
+    <div class="lp-actions">
+      <a data-cms="hero_btn2" class="btn gold" href="request.html">اطلب خدمتك</a>
+      <a data-cms="hero_btn1" class="btn ghost" href="#services">اكتشف خدماتنا</a>
     </div>
-    <div class="hero-stats">
-      <div><b data-cms="stat1_n">+٥٠</b><span data-cms="stat1_l">فيديو منتج</span></div>
-      <div><b data-cms="stat2_n">٢</b><span data-cms="stat2_l">سلسلة أصلية</span></div>
-      <div><b data-cms="stat3_n">٤</b><span data-cms="stat3_l">مؤسسين متخصصين</span></div>
+    <ul class="lp-pills">
+      <li>من الفكرة للإطلاق</li><li>تنفيذ بمعايير احترافية</li><li>دعم ما بعد التسليم</li>
+    </ul>
+  </div>
+</section>
+
+<section class="lp-sec" id="services">
+  <div class="wrap">
+    <div class="lp-head">
+      <span class="lp-kicker">خدماتنا</span>
+      <h2>كل اللي شركتك محتاجاه عشان تكبر، في مكان واحد</h2>
+      <p>فريق واحد يبني المنتج، ويشغّل الذكاء الاصطناعي، ويصنع المحتوى المرئي اللي يوصّل قصتك.</p>
+    </div>
+    <div class="lp-cards">
+      <article class="lp-card">
+        <div class="lp-ico"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="m9.5 8.5-2 1.5 2 1.5M14.5 8.5l2 1.5-2 1.5"/></svg></div>
+        <h3>منصات وتطبيقات</h3>
+        <p>مواقع ومنصات وتطبيقات وأنظمة داخلية مصممة حوالين طريقة شغلك، سريعة وآمنة وسهلة الاستخدام.</p>
+      </article>
+      <article class="lp-card">
+        <div class="lp-ico"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div>
+        <h3>حلول ذكاء اصطناعي</h3>
+        <p>أدوات وأنظمة ذكية بتوفّر وقت فريقك وبتحسّن قراراتك، من الأتمتة لحد المساعدات الذكية للشركات.</p>
+      </article>
+      <article class="lp-card">
+        <div class="lp-ico"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10.5 9.5 4 2.5-4 2.5z"/></svg></div>
+        <h3>إنتاج مرئي وإعلاني</h3>
+        <p>إعلانات وفيديوهات وسلاسل بإنتاج سينمائي، من الفكرة والسيناريو لحد التسليم النهائي.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="section desktop-only">
+<section class="lp-sec lp-alt">
+  <div class="wrap">
+    <div class="lp-head">
+      <span class="lp-kicker">طريقة شغلنا</span>
+      <h2>أربع خطوات واضحة من الفكرة للإطلاق</h2>
+    </div>
+    <ol class="lp-steps">
+      <li><b>١</b><h3>نفهمك</h3><p>نسمع هدفك وجمهورك ونحدد المطلوب بدقة.</p></li>
+      <li><b>٢</b><h3>نصمّم</h3><p>نرسم الحل والهوية والتجربة قبل ما نبدأ التنفيذ.</p></li>
+      <li><b>٣</b><h3>نبني</h3><p>ننفّذ بجودة وبنراجع معاك في كل مرحلة.</p></li>
+      <li><b>٤</b><h3>نطلق وندعم</h3><p>نسلّم ونطلق ونفضل جنبك بعد التسليم.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="lp-sec">
+  <div class="wrap lp-why">
+    <div>
+      <span class="lp-kicker">ليه رُؤَى</span>
+      <h2>شغف الحِرفيين ودقة المهندسين</h2>
+      <p>بنتعامل مع كل مشروع كأنه مشروعنا. نهتم بالتفاصيل الصغيرة، ونشتغل بشفافية، ونكون شريك نجاحك من الفكرة الأولى للإطلاق وما بعده.</p>
+      <a class="btn primary" href="request.html">ابدأ مشروعك</a>
+    </div>
+    <ul class="lp-points">
+      <li><b>شريك مش مجرد مورّد</b><span>بنفكر معاك في هدف شركتك مش بس في المطلوب.</span></li>
+      <li><b>كل الخدمات في مكان واحد</b><span>منتج رقمي وذكاء اصطناعي ومحتوى مرئي بهوية واحدة.</span></li>
+      <li><b>جودة قبل التسليم</b><span>مراجعة على كل مرحلة عشان النتيجة تفرّق فعلًا.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="lp-sec lp-alt">
   <div class="wrap">
     <div class="section-title">
-      <h2 data-cms="works_title">أحدث الأعمال</h2>
+      <h2 data-cms="works_title">من أعمالنا</h2>
       <a class="more" href="works.html">كل الأعمال ←</a>
     </div>
     <div data-limit="3" data-cms-list="work" class="cards">
@@ -88,34 +146,11 @@
   </div>
 </section>
 
-<section class="section">
+<section class="lp-cta">
   <div class="wrap">
-    <div class="section-title">
-      <h2 data-cms="stories_title">حكايات من إنتاجنا</h2>
-      <a class="more" href="series.html">كل السلاسل ←</a>
-    </div>
-    <div data-limit="4" data-card="story" data-cms-list="series" class="stories fade-in">
-      <a class="story" href="watch.html">
-        <div class="thumb"><img src="assets/img/drama.jpg" alt="آخر ضوء" loading="lazy"><span class="cat">اسم توضيحي</span><span class="play">▶</span></div>
-        <h3>آخر ضوء</h3>
-        <p>سلسلة درامية</p>
-      </a>
-      <a class="story" href="watch.html">
-        <div class="thumb"><img src="assets/img/kids.jpg" alt="مغامرات آدم" loading="lazy"><span class="cat">اسم توضيحي</span><span class="play">▶</span></div>
-        <h3>مغامرات آدم</h3>
-        <p>سلسلة تعليمية للأطفال</p>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:0">
-  <div class="wrap">
-    <div class="cta-card fade-in">
-      <h3 data-cms="cta_title">عندك فكرة؟ نخليها تتشاف.</h3>
-      <p data-cms="cta_text">إعلانات، محتوى للسوشيال، وإنتاج سلاسل للعلامات التجارية.</p>
-      <a data-cms="cta_btn" class="btn primary" href="packages.html">شوف الباقات</a>
-    </div>
+    <h2 data-cms="cta_title">عندك فكرة؟ خلّينا نحوّلها لواقع.</h2>
+    <p data-cms="cta_text">احكيلنا عن مشروعك ونرجعلك بخطة واضحة.</p>
+    <a data-cms="cta_btn" class="btn gold" href="request.html">اطلب خدمتك</a>
   </div>
 </section>
 

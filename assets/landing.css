@@ -1,0 +1,67 @@
+/* Landing page (home). Uses the ROUA palette: deep green, gold, ivory. */
+.btn.gold{background:#F4B749;border-color:#F4B749;color:#03301F;font-weight:700}
+.btn.gold:hover{background:#FEF6B5;border-color:#FEF6B5;color:#03301F}
+.lp-hero{position:relative;background:#02301F;color:#fff;overflow:hidden}
+.lp-hero-bg{position:absolute;inset:0;background:
+  radial-gradient(520px 320px at 85% 0%,#F4B74933,transparent 65%),
+  radial-gradient(700px 400px at 10% 100%,#08543666,transparent 70%),
+  linear-gradient(180deg,#03301F,#022417);}
+.lp-hero-bg::after{content:"";position:absolute;inset:0;background:url(img/roua-symbol.png) no-repeat 8% 60%/300px;opacity:.07}
+.lp-hero-in{position:relative;padding:64px 20px 56px}
+.lp-tag{display:inline-block;border:1px solid #F4B74988;color:#F4B749;border-radius:999px;padding:6px 16px;font-size:13px;font-weight:700}
+.lp-hero h1{font-size:34px;line-height:1.55;margin:20px 0 14px;font-weight:800;color:#fff}
+.lp-hero p{font-size:15px;line-height:2;color:#CFE5DB;max-width:620px;margin-bottom:26px}
+.lp-actions{display:flex;flex-wrap:wrap;gap:12px}
+.lp-actions .btn{padding:13px 28px;font-size:15px}
+.lp-pills{display:flex;flex-wrap:wrap;gap:8px 18px;margin:30px 0 0;padding:26px 0 0;border-top:1px solid #ffffff1f;list-style:none}
+.lp-pills li{font-size:13px;color:#F4B749;display:flex;align-items:center;gap:8px}
+.lp-pills li::before{content:"";width:6px;height:6px;border-radius:50%;background:#F4B749}
+.lp-sec{padding:56px 0}
+.lp-alt{background:#F3EDDD}
+.lp-head{max-width:640px;margin-bottom:30px}
+.lp-kicker{display:inline-block;color:#8a5a00;font-weight:700;font-size:13px;margin-bottom:6px}
+.lp-head h2,.lp-why h2{font-size:25px;line-height:1.6;margin-bottom:10px}
+.lp-head p,.lp-why p{color:var(--muted);font-size:15px;line-height:2}
+.lp-cards{display:grid;gap:16px}
+.lp-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;transition:transform .2s,box-shadow .2s}
+.lp-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(5,61,40,.12)}
+.lp-ico{width:54px;height:54px;border-radius:14px;background:#03301F;color:#F4B749;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.lp-card h3{font-size:18px;margin-bottom:8px}
+.lp-card p{font-size:14px;color:var(--muted);line-height:1.9}
+.lp-steps{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.lp-steps li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;position:relative}
+.lp-steps b{display:inline-flex;width:34px;height:34px;border-radius:50%;background:#F4B749;color:#03301F;align-items:center;justify-content:center;font-size:16px;margin-bottom:10px}
+.lp-steps h3{font-size:16px;margin-bottom:4px}
+.lp-steps p{font-size:13.5px;color:var(--muted);line-height:1.9}
+.lp-why{display:grid;gap:28px}
+.lp-why .btn{margin-top:18px}
+.lp-points{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.lp-points li{border-inline-start:3px solid #F4B749;background:#fff;border-radius:10px;padding:14px 16px;display:grid;gap:2px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lp-points b{font-size:15px}
+.lp-points span{font-size:13.5px;color:var(--muted);line-height:1.8}
+.lp-alt .section-title{margin-bottom:22px}
+.lp-cta{background:#02301F;color:#fff;text-align:center;padding:60px 0;position:relative;overflow:hidden}
+.lp-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 260px at 50% 0%,#F4B74933,transparent 70%)}
+.lp-cta .wrap{position:relative}
+.lp-cta h2{font-size:26px;line-height:1.6;margin-bottom:8px}
+.lp-cta p{color:#CFE5DB;margin-bottom:22px}
+.lp-cta .btn{padding:13px 34px;font-size:15px}
+@media (min-width:700px){
+  .lp-hero-in{padding:96px 20px 80px}
+  .lp-hero h1{font-size:46px}
+  .lp-hero p{font-size:17px}
+  .lp-hero-bg::after{background-size:420px;background-position:6% 50%;opacity:.09}
+  .lp-sec{padding:80px 0}
+  .lp-head h2,.lp-why h2{font-size:32px}
+  .lp-cards{grid-template-columns:repeat(3,1fr);gap:22px}
+  .lp-steps{grid-template-columns:repeat(4,1fr)}
+  .lp-why{grid-template-columns:1.1fr 1fr;align-items:center;gap:56px}
+  .lp-cta h2{font-size:34px}
+}
+@media (max-width:699px){
+  .lp-steps{grid-template-columns:1fr 1fr;gap:10px}
+  .lp-steps li{padding:16px 14px}
+  .lp-card{padding:20px}
+  .lp-sec{padding:44px 0}
+  .lp-hero-bg::after{opacity:.05}
+}
