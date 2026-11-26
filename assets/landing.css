@@ -105,7 +105,7 @@
 .lp-pin{position:relative;height:640px;overflow:hidden;--e:1;--t2:1;--ix:0%;--iy:0%;--rad:0px;display:flex}
 .lp-frame{position:absolute;inset:0;clip-path:inset(var(--iy) var(--ix) var(--iy) var(--ix) round var(--rad) var(--rad) 0 0);background:#022417}
 .lp-ring{display:none}
-.lp-js .lp-ring{display:block;position:absolute;z-index:1;pointer-events:none;inset:calc(var(--iy) - 12px) calc(var(--ix) - 12px) calc(var(--iy) - 12px) calc(var(--ix) - 12px);border:1.5px solid #F4B749;border-bottom:0;border-radius:calc(var(--rad) + 12px) calc(var(--rad) + 12px) 0 0;opacity:calc(1 - var(--e) * 2.2)}
+.lp-js .lp-ring{display:none;position:absolute;z-index:1;pointer-events:none;inset:calc(var(--iy) - 12px) calc(var(--ix) - 12px) calc(var(--iy) - 12px) calc(var(--ix) - 12px);border:1.5px solid #F4B749;border-bottom:0;border-radius:calc(var(--rad) + 12px) calc(var(--rad) + 12px) 0 0;opacity:calc(1 - var(--e) * 2.2)}
 .lp-js .lp-ring.r2{inset:calc(var(--iy) - 24px) calc(var(--ix) - 24px) calc(var(--iy) - 24px) calc(var(--ix) - 24px);border-color:#F4B74966;border-radius:calc(var(--rad) + 24px) calc(var(--rad) + 24px) 0 0}
 .lp-img{position:absolute;inset:-4% 0;background:url(img/drama.jpg) 62% 20%/cover no-repeat;transform:translateY(var(--py,0px)) scale(var(--sc,1))}
 .lp-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,36,23,.25),rgba(2,36,23,.45) 45%,rgba(2,36,23,.9));opacity:var(--sh,1)}
@@ -117,7 +117,7 @@
 .lp-kick,.lp-hint{display:none}
 
 .lp-js .lp-stage{height:240vh}
-.lp-js .lp-pin{position:sticky;top:0;height:100vh;height:100svh;--e:0;--t2:0;--ix:13%;--iy:15%;--rad:150px;align-items:center}
+.lp-js .lp-pin{position:sticky;top:0;height:100vh;height:100svh;--e:0;--t2:0;--ix:0%;--iy:0%;--rad:0px;align-items:center}
 .lp-js .lp-copy{justify-content:center;height:100%}
 .lp-js .lp-more{max-height:calc(var(--t2) * 340px);opacity:var(--t2);overflow:hidden;transform:translateY(calc((1 - var(--t2)) * 18px))}
 .lp-js .lp-copy h1{font-size:calc(30px + var(--e) * 8px)}
@@ -128,7 +128,7 @@
 .lp-js .lp-shade{opacity:calc(.6 + var(--e) * .4)}
 @media (min-width:700px){
   .lp-pin{height:640px}
-  .lp-js .lp-pin{--ix:32%;--iy:15%;--rad:260px}
+  .lp-js .lp-pin{--ix:0%;--iy:0%;--rad:0px}
   .lp-copy h1{font-size:46px}
   .lp-js .lp-copy h1{font-size:calc(38px + var(--e) * 14px)}
   .lp-more p{font-size:17px}
@@ -145,3 +145,12 @@
 /* work images drift */
 .work .thumb img{transform:translateY(var(--ty,0px)) scale(1.14);transition:transform .15s linear}
 .work:hover .thumb img{transform:translateY(var(--ty,0px)) scale(1.2)}
+
+/* full-bleed hero from the first frame */
+.lp-js .lp-stage{height:190vh}
+.lp-js .lp-kick{top:96px;color:#FEF6B5;border-color:#F4B749aa;background:rgba(2,36,23,.45);opacity:calc(1 - var(--e) * 1.2)}
+.lp-js .lp-hint{bottom:22px;color:#E3F0EA;opacity:calc(1 - var(--e) * 5)}
+.lp-hint i{background:linear-gradient(#F4B749,transparent)}
+.lp-js .lp-copy h1{font-size:calc(34px + var(--e) * 6px)}
+.lp-js .lp-shade{opacity:calc(.8 + var(--e) * .2)}
+@media (min-width:700px){.lp-js .lp-copy h1{font-size:calc(46px + var(--e) * 12px)}.lp-js .lp-stage{height:210vh}}

@@ -49,15 +49,15 @@
     if (stage && pin) {
       var vh = window.innerHeight, sr = stage.getBoundingClientRect(), tot = sr.height - vh,
           p = tot > 0 ? Math.max(0, Math.min(1, -sr.top / tot)) : 1,
-          e = 1 - Math.pow(1 - Math.min(1, p / 0.62), 3),
-          t2 = Math.max(0, Math.min(1, (p - 0.5) / 0.3)),
-          mob = window.innerWidth < 700, ix = mob ? 13 : 32, iy = 15, fw = window.innerWidth * (1 - 2 * ix / 100) / 2;
+          e = 1 - Math.pow(1 - Math.min(1, p / 0.7), 3),
+          t2 = Math.max(0, Math.min(1, (p - 0.12) / 0.3)),
+          mob = window.innerWidth < 700, ix = 0, iy = 0, fw = window.innerWidth * (1 - 2 * ix / 100) / 2;
       pin.style.setProperty('--e', e.toFixed(3));
       pin.style.setProperty('--t2', t2.toFixed(3));
       pin.style.setProperty('--ix', (ix * (1 - e)).toFixed(2) + '%');
       pin.style.setProperty('--iy', (iy * (1 - e)).toFixed(2) + '%');
-      pin.style.setProperty('--rad', (fw * (1 - e)).toFixed(1) + 'px');
-      pin.style.setProperty('--sc', (1.18 - 0.18 * e).toFixed(3));
+      pin.style.setProperty('--rad', '0px');
+      pin.style.setProperty('--sc', (1.12 - 0.12 * e).toFixed(3));
       pin.style.setProperty('--py', (p * -vh * 0.06).toFixed(1) + 'px');
     }
     if (big) {
