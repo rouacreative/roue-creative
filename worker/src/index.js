@@ -81,6 +81,14 @@ function rateLimited(req, key, perMin, perDay) {
 }
 const clampInt = (v, lo, hi, d) => { v = Math.round(Number(v)); return Number.isFinite(v) && v >= lo && v <= hi ? v : d; };
 const cleanTxt = (x, n) => String(x == null ? "" : x).replace(/[\u0600-\u06FF]/g, "").replace(/\s+/g, " ").replace(/[.,;:!\s]+$/, "").trim().slice(0, n);
+// Workers AI failure: log the real message (visible in wrangler tail only), return a distinct code for quota/capacity.
+function aiErr(e) {
+  const m = String((e && e.message) || e || "");
+  console.log("workers-ai error:", m.slice(0, 500));
+  if (/4006|daily free allocation|neurons|quota/i.test(m)) return json({ error: "ai_quota" }, 503);
+  if (/3040|capacity|overloaded/i.test(m)) return json({ error: "ai_busy" }, 503);
+  return json({ error: "ai_failed" }, 502);
+}
 export default {
   async scheduled(event, env) { const sql = neon(env.DATABASE_URL); await deadlineReminders(sql, env); await sql`delete from notifications where created_at < now() - interval '30 days'`; await sql`delete from sessions where expires_at < now()`; await sql`delete from login_attempts where at < now() - interval '1 day'`; try { if (env.META_PAGE_TOKEN) await advanceAll(sql, env); } catch (_) {} },
 
@@ -104,7 +112,7 @@ export default {
           return e && !/[\u0600-\u06FF]/.test(e) ? e : "";
         }));
         return json({ texts: out });
-      } catch (e) { return json({ error: "ai_failed" }, 502); }
+      } catch (e) { return aiErr(e); }
     }
     // Public (no login): smart "surprise me". Reads an idea (Arabic or English) and returns settings for the prompt tool. Nothing stored.
     if (p === "/api/prompt/plan" && req.method === "POST") {
@@ -134,7 +142,7 @@ export default {
         }
         if (!plan) return json({ error: "bad_plan" }, 502);
         return json({ plan });
-      } catch (e) { return json({ error: "ai_failed" }, 502); }
+      } catch (e) { return aiErr(e); }
     }
     if (!env.DATABASE_URL) return json({ error: "not_configured" }, 503);
     const sql = neon(env.DATABASE_URL);
