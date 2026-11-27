@@ -59,7 +59,7 @@ const m=pbTotalClips(),sz=pbSplit().map(x=>x.length),sMin=PB.cl/Math.max(...sz),
  if(sMin<1.5)w.push(`اللقطة الواحدة ${pbN(sMin)} ثانية، قصيرة جدًا والموديل مش هيلحق. قلل اللقطات أو زوّد مدة المقطع.`);
  if(sMax>12)w.push(`اللقطة الواحدة ${pbN(sMax)} ثانية، طويلة وممكن تتكرر أو تهنج. ضيف لقطات.`);
  if(!PB.subj.trim())w.push("الموضوع فاضي. اكتب وصف المنتج أو الشخصية، وده أهم حاجة في ثبات الفيديو.");
- if(pbAllSrc().some(x=>!pbEn(x)))w.push(pbFail?"تعذرت ترجمة الكلام العربي. جرب تاني أو اكتبه إنجليزي.":"الترجمة للإنجليزي لسه بتتعمل، استنى ثانية.");
+ if(pbAllSrc().some(x=>!pbEn(x)))w.push(pbFail?pbErrTxt()+".":"الترجمة للإنجليزي لسه بتتعمل، استنى ثانية.");
  if(PB.sty==0&&PB.cat==4)w.push("اخترت أسلوب واقعي لنوع شخصيات كرتون. لو عايز كرتون اختار أسلوب كارتون.");
  if(PB.peo==0&&[2,9,11].includes(PB.cat))w.push("نوع الفيديو ده غالبًا فيه ناس بس اخترت «من غير ناس».");
  if(PB.sty==6&&PB.set==0)w.push("أسلوب فانتازيا مع «مدينة» حديثة. ممكن يطلع غريب. جرّب طبيعة أو مكان تراثي.");
@@ -68,10 +68,10 @@ const m=pbTotalClips(),sz=pbSplit().map(x=>x.length),sMin=PB.cl/Math.max(...sz),
 const PB_AR=/[\u0600-\u06FF]/;
 const pbEn=x=>{x=String(x||"").trim();if(!PB_AR.test(x))return x;const t=PB.tr&&PB.tr[x];return t||""};
 const pbAllSrc=()=>[PB.subj].concat(PB.shots.map(b=>b.a)).map(x=>String(x||"").trim()).filter(x=>PB_AR.test(x));
-let pbTimer=null,pbBusy=false,pbFail=false;
+let pbTimer=null,pbBusy=false,pbFail=false,pbErr="";const pbErrTxt=()=>pbErr=="ai_quota"?"وصلنا للحد اليومي للترجمة بالذكاء الاصطناعي. جرب بكرة أو اكتب بالإنجليزي":(pbErr=="rate_limited"?"طلبات كتير، استنى دقيقة وجرب تاني":"تعذرت الترجمة، حاول تاني");
 function pbSchedTr(){clearTimeout(pbTimer);pbTimer=setTimeout(pbDoTr,700)}
-async function pbDoTr(){PB.tr=PB.tr||{};const need=[...new Set(pbAllSrc().filter(x=>!PB.tr[x]))];if(!need.length){pbFail=false;pbShowTr();return}pbBusy=true;pbShowTr();try{const r=await fetch("/api/prompt/translate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({texts:need.slice(0,12)})});const d=await r.json();if(!r.ok||!Array.isArray(d.texts))throw 0;need.slice(0,12).forEach((x,i)=>{if(d.texts[i])PB.tr[x]=String(d.texts[i]).slice(0,400)});pbFail=need.some(x=>!PB.tr[x]);pbSave()}catch(e){pbFail=true}pbBusy=false;pbShowTr();pbOut()}
-function pbShowTr(){const st=document.getElementById("pb-tr-st");const f=(id,x)=>{const e=document.getElementById(id);if(!e)return;x=String(x||"").trim();if(!PB_AR.test(x)){e.style.display="none";return}e.style.display="block";e.textContent=PB.tr&&PB.tr[x]?"English: "+PB.tr[x]:(pbFail?"تعذرت الترجمة، حاول تاني":"بترجم...")};f("pb-tr-subj",PB.subj);PB.shots.forEach((b,i)=>f("pb-tr-"+i,b.a))}
+async function pbDoTr(){PB.tr=PB.tr||{};const need=[...new Set(pbAllSrc().filter(x=>!PB.tr[x]))];if(!need.length){pbFail=false;pbShowTr();return}pbBusy=true;pbErr="";pbShowTr();try{const r=await fetch("/api/prompt/translate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({texts:need.slice(0,12)})});const d=await r.json();pbErr=d.error||"";if(!r.ok||!Array.isArray(d.texts))throw 0;need.slice(0,12).forEach((x,i)=>{if(d.texts[i])PB.tr[x]=String(d.texts[i]).slice(0,400)});pbFail=need.some(x=>!PB.tr[x]);pbSave()}catch(e){pbFail=true}pbBusy=false;pbShowTr();pbOut()}
+function pbShowTr(){const st=document.getElementById("pb-tr-st");const f=(id,x)=>{const e=document.getElementById(id);if(!e)return;x=String(x||"").trim();if(!PB_AR.test(x)){e.style.display="none";return}e.style.display="block";e.textContent=PB.tr&&PB.tr[x]?"English: "+PB.tr[x]:(pbFail?pbErrTxt():"بترجم...")};f("pb-tr-subj",PB.subj);PB.shots.forEach((b,i)=>f("pb-tr-"+i,b.a))}
 const pbClean=x=>String(x||"").replace(/\s+/g," ").replace(/[\s.,;:!]+$/,"").trim();
 const PB_PEOPLE=/\b(person|people|man|men|woman|women|girl|boy|team|characters?|fisherman|traveler|friends?|runner|footballer|model|craftsman|hands?|crowd|children|child|kids?|family|dancer|player|driver|worker|customers?|he|she)\b/i;
 const PB_COLORW=/\b(red|green|blue|yellow|orange|pink|purple|golden|gold|turquoise|violet)\b/i;
@@ -123,16 +123,16 @@ function pbPlanNote(){const c=PB_CATS[PB.cat];return `فهمت من فكرتك: 
 async function pbSmart(go){
  const idea=(PB.idea||"").trim();
  if(idea.length<2){PB.smartMsg="اكتب فكرتك الأول في الخانة (بالعربي أو الإنجليزي) وبعدين اضغط.";R();return}
- if(pbSmartBusy)return;pbSmartBusy=true;PB.smartMsg="";R();
+ if(pbSmartBusy)return;pbSmartBusy=true;pbErr="";PB.smartMsg="";R();
  const pc=Math.max(1,Math.min(5,Math.round(PB.cl/4))),k=Math.max(PB.clips,Math.min(24,PB.clips*pc));
  try{
   const r=await fetch("/api/prompt/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({idea,shots:k})});
-  const d=await r.json();if(!r.ok||!d.plan)throw 0;const p=d.plan;
+  const d=await r.json();pbErr=d.error||"";if(!r.ok||!d.plan)throw 0;const p=d.plan;
   PB.cat=p.cat;PB.sty=p.sty;PB.set=p.set;PB.tod=p.tod;PB.mood=p.mood;PB.pal=p.pal;PB.peo=p.peo;if(p.rat!=null)PB.rat=p.rat;
   PB.subj=p.subj;PB.shots=p.shots.map(x=>({t:x.t,a:x.a||""}));PB.autoShots=false;PB.bans=null;
   pbPlanFix();PB.smartMsg=pbPlanNote();pbSmartBusy=false;pbSave();if(go)PB.step=go;R();scrollTo(0,0);
  }catch(e){
-  pbSmartBusy=false;if(PB.cat<0)PB.cat=2;pbDiceRand();PB.smartMsg="الذكاء الاصطناعي مش متاح دلوقتي، فاخترت لك اختيارات عشوائية. جرب تاني بعد شوية.";R();if(go){PB.step=go;pbSave();R()}
+  pbSmartBusy=false;if(PB.cat<0)PB.cat=2;pbDiceRand();PB.smartMsg=(pbErr=="ai_quota"?"وصلنا للحد اليومي للذكاء الاصطناعي، فاخترت لك اختيارات عشوائية. جرب تاني بكرة.":(pbErr=="rate_limited"?"طلبات كتير، استنى دقيقة. اخترت لك اختيارات عشوائية دلوقتي.":"الذكاء الاصطناعي مش متاح دلوقتي، فاخترت لك اختيارات عشوائية. جرب تاني بعد شوية."));R();if(go){PB.step=go;pbSave();R()}
  }
 }
 function pbSmartNote(){if(pbSmartBusy)return `<div class="t" style="border-color:#8fc9a8;background:#eaf6ef">✨ بفكر في فكرتك...</div>`;return PB.smartMsg?`<div id="pbsn" class="t" style="border-color:#8fc9a8;background:#eaf6ef">✨ ${esc(PB.smartMsg)}</div>`:""}

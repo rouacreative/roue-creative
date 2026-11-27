@@ -1,7 +1,7 @@
 // Zwicky team API: Cloudflare Worker + Neon (Postgres over HTTP).
 // Secrets/vars: DATABASE_URL (secret), VAPID_PRIVATE_JWK (secret), VAPID_PUBLIC (var), VAPID_SUBJECT (var).
 import { neon } from "@neondatabase/serverless";
-import { TR_SYSTEM } from "./translate-prompt.js";
+import { trSystem } from "./translate-prompt.js";
 import { PLAN_SYSTEM } from "./plan-prompt.js";
 import { handlePublic, handleAdmin } from "./site.js";
 import { handlePublish, advanceAll } from "./publish.js";
@@ -79,6 +79,7 @@ function rateLimited(req, key, perMin, perDay) {
   if (L.size > 5000) for (const k of L.keys()) { L.delete(k); if (L.size < 2500) break; }
   return false;
 }
+const CAMW = /\b(the camera|camera (?:moves|orbits|pushes|zooms|pans|tilts|follows|glides|circles)|wide shot|wide view|close-?up|close view|close shot|zoom(?:s|ed|ing)? (?:in|out|on)|pan(?:s|ning)? (?:left|right|across|up|down)|panning|orbit(?:s|ing)? around the|tracking shot|slow[- ]motion|slow-mo|time-?lapse|pov|first-person|top-down|overhead|aerial|from above|from directly above|seen from|bird's[- ]eye|push(?:es|ed)? in|pull(?:s|ed)? back|dolly|different angles|camera angle)\b/i;
 const clampInt = (v, lo, hi, d) => { v = Math.round(Number(v)); return Number.isFinite(v) && v >= lo && v <= hi ? v : d; };
 const cleanTxt = (x, n) => String(x == null ? "" : x).replace(/[\u0600-\u06FF]/g, "").replace(/\s+/g, " ").replace(/[.,;:!\s]+$/, "").trim().slice(0, n);
 // Workers AI failure: log the real message (visible in wrangler tail only), return a distinct code for quota/capacity.
@@ -101,12 +102,13 @@ export default {
       if (rateLimited(req, "tr", 12, 150)) return json({ error: "rate_limited" }, 429, { "retry-after": "60" });
       let b; try { b = await req.json(); } catch { return json({ error: "bad_json" }, 400); }
       const texts = (Array.isArray(b.texts) ? b.texts : []).slice(0, 12).map((x) => String(x || "").slice(0, 300));
+      const TR_MODEL = b.m === "8b" ? "@cf/meta/llama-3.1-8b-instruct-fp8-fast" : "@cf/meta/llama-3.3-70b-instruct-fp8-fast"; // "8b" is a cheaper model, for A/B tests
       if (!texts.length) return json({ error: "empty" }, 400);
       try {
         const out = await Promise.all(texts.map(async (t) => {
           if (!/[\u0600-\u06FF]/.test(t)) return t;
-          const r = await env.AI.run("@cf/meta/llama-3.3-70b-instruct-fp8-fast", { max_tokens: 160, temperature: 0, messages: [
-            { role: "system", content: TR_SYSTEM },
+          const r = await env.AI.run(TR_MODEL, { max_tokens: 120, temperature: 0, messages: [
+            { role: "system", content: trSystem(t) },
             { role: "user", content: t }] });
           const e = String(r && r.response || "").trim().replace(/^["'`]+|["'`]+$/g, "").replace(/\s+/g, " ").replace(/\.$/, "").slice(0, 400);
           return e && !/[\u0600-\u06FF]/.test(e) ? e : "";
@@ -134,6 +136,8 @@ export default {
           const subj = cleanTxt(o.subj, 300);
           if (!subj || !Array.isArray(o.shots) || !o.shots.length) continue;
           let shots = o.shots.slice(0, 24).map((x) => ({ t: clampInt(x && x.t, 0, 12, 0), a: cleanTxt(x && x.a, 200) }));
+          // camera words belong to the shot type, not the action text: drop an action that has them
+          shots.forEach((x) => { if (CAMW.test(x.a)) x.a = ""; });
           while (shots.length < n) shots.push({ t: [0, 4, 1, 3, 2, 5][shots.length % 6], a: "" });
           shots = shots.slice(0, n);
           shots[shots.length - 1].t = 12;
