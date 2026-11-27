@@ -1,6 +1,7 @@
 // Zwicky team API: Cloudflare Worker + Neon (Postgres over HTTP).
 // Secrets/vars: DATABASE_URL (secret), VAPID_PRIVATE_JWK (secret), VAPID_PUBLIC (var), VAPID_SUBJECT (var).
 import { neon } from "@neondatabase/serverless";
+import { TR_SYSTEM } from "./translate-prompt.js";
 import { handlePublic, handleAdmin } from "./site.js";
 import { handlePublish, advanceAll } from "./publish.js";
 
@@ -88,15 +89,14 @@ export default {
       const texts = (Array.isArray(b.texts) ? b.texts : []).slice(0, 12).map((x) => String(x || "").slice(0, 300));
       if (!texts.length) return json({ error: "empty" }, 400);
       try {
-        const out = [];
-        for (const t of texts) {
-          if (!/[\u0600-\u06FF]/.test(t)) { out.push(t); continue; }
-          const r = await env.AI.run("@cf/meta/llama-3.3-70b-instruct-fp8-fast", { max_tokens: 160, temperature: 0.2, messages: [
-            { role: "system", content: "You translate Arabic (Egyptian dialect or Modern Standard) into one short, concrete English phrase for an AI video prompt. Describe only what is seen: subject, appearance, or action. Keep every detail and color the user gave, add nothing new, no camera words, no quotes, no explanation. Output only the English phrase." },
+        const out = await Promise.all(texts.map(async (t) => {
+          if (!/[\u0600-\u06FF]/.test(t)) return t;
+          const r = await env.AI.run("@cf/meta/llama-3.3-70b-instruct-fp8-fast", { max_tokens: 160, temperature: 0, messages: [
+            { role: "system", content: TR_SYSTEM },
             { role: "user", content: t }] });
-          const e = String(r && r.response || "").trim().replace(/^["'`]+|["'`]+$/g, "").replace(/\s+/g, " ").slice(0, 400);
-          out.push(e && !/[\u0600-\u06FF]/.test(e) ? e : "");
-        }
+          const e = String(r && r.response || "").trim().replace(/^["'`]+|["'`]+$/g, "").replace(/\s+/g, " ").replace(/\.$/, "").slice(0, 400);
+          return e && !/[\u0600-\u06FF]/.test(e) ? e : "";
+        }));
         return json({ texts: out });
       } catch (e) { return json({ error: "ai_failed" }, 502); }
     }
