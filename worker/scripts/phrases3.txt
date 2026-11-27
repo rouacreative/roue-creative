@@ -1,0 +1,266 @@
+# arabic | required terms | forbidden terms
+بطريق صغير بيتزحلق على الجليد|penguin,slid/slip/glid,ice|duck
+قطيع بطاريق على الشط|penguins,beach/shore|duck
+ذرة مسلوقة في إيد عيل|corn,boil,hand,boy/child/kid|rice
+فلاح بيشتغل بالتور في الغيط|farmer/man,ox/bull/cattle,field|tractor
+بياع فول على عربية خشب|ful/fava/beans,vendor/seller,cart|car 
+عربية كارو بيجرها حمار|cart,donkey|
+جنية بتطير وسط الورد|fairy,fly,flower/rose|genie
+جني خارج من لمبة|genie,lamp|fairy
+دكتورة معاها سماعة وبتسمع قلب مريض|doctor,stethoscope,patient,heart|headphones
+بنت سامعة موسيقى في سماعات كبيرة|girl,headphones,music|stethoscope
+عروسة لابسة طرحة تل طويلة|bride,veil|headscarf
+ست لابسة طرحة سودا ومشيها بطيء|woman,black,scarf/veil/shawl/headscarf,walk,slow|
+نول قديم بينسج سجادة|loom,weav,carpet/rug|spinning wheel
+بنت بتطفي الشمعة|girl,blow,candle|turn
+شاب بيطفي النور وبينام|man/young man,turn off/switch off,light,sleep|
+شاب بيولع الولاعة|young man/man,lighter,light/flick/spark|
+هليكوبتر بتنزل على السطح ببطء|helicopter,land,roof|fall
+طيارة بتقلع من المطار|plane/airplane,take off,airport|
+صاروخ بيطلع بسرعة وسط دخان|rocket,smoke|
+ضل راجل ماشي على الحيطة|shadow,man,wall|remaining
+ظل الشجرة على الأرض|shadow,tree,ground/floor|
+لاعب بيحط الكورة في الجون|player,ball,goal|field
+حارس بيقف في الجون|goalkeeper/keeper/goalie,goal/net|
+حوض سمك كبير فيه سمك ملون|aquarium/fish tank,fish,colorful/colourful|pool
+سمكة صغيرة جوه حوض زجاج|small/little,fish,glass,tank/aquarium|pool
+بنت بتأكل أخوها الصغير بالمعلقة|girl,feed,brother,spoon|eating her
+راجل بيأكل الحمام حبوب|man,feed,pigeons/doves,grain/seeds/corn|
+أب بيأكل ابنه الشوربة|father,feed,son,soup|eating his
+نجار بيسحج الخشب بالفارة|carpenter,plane/planing/shav,wood|polish
+عامل بيصنفر باب خشب|worker,sand,wooden,door|
+نقاش بيدهن حيطة|painter,paint,wall|
+سباك بيصلح ماسورة|plumber,repair/fix,pipe|
+كهربائي بيشتغل في عمود نور|electrician,lamp post/pole/streetlight/light pole/utility pole|
+ست بتقلب المكرونة في الحلة|woman,stir,pasta/macaroni,pot|
+عيش بيتحط في الفرن|bread,oven|
+حلاوة طحينية بتتقطع|halva/halawa,cut|
+عسل أسود بينزل على الطحينة|molasses/black honey/dark honey,tahini|
+أرز بلبن بيتحط في طبق فخار|rice pudding,clay/pottery,bowl/dish/plate|
+بسبوسة وقطر|basbousa/semolina,syrup|
+ملوخية بتتقلب في حلة|molokhia/jute/mulukhiyah,stir,pot|
+حمام محشي على الصينية|stuffed pigeon/stuffed,tray|
+كباب مشوي على سيخ|kebab/kabab,grill,skewer|
+كفتة بتتشوي على الفحم|kofta/kafta,grill,charcoal|
+فطار على سطح بيت في الريف|breakfast,roof,village/country|
+سحور رمضاني على مائدة صغيرة|suhoor/sahur/pre-dawn,table|
+تمر وماية في المغرب|dates,water,sunset/maghrib/iftar|
+مسجد ومئذنة بتنور وقت الأذان|mosque,minaret,lit/light/glow|
+كنيسة وجرس بيدق|church,bell,ring/chim|
+قبة جامع كبيرة وحمام بيطير|dome,mosque,pigeons/doves,fly|
+تمثال فرعوني كبير|pharaonic/pharaoh/Egyptian,statue|
+معبد قديم ونقوش على الحيطة|old/ancient,temple,carving/inscription/hieroglyph,wall|
+هرم كبير والنجوم فوقه|pyramid,stars|
+أبو الهول وقت الشروق|Sphinx,sunrise|
+مصطبة وناس بتصور|mastaba/platform/bench,people,photo/film|
+شاب بيركب جمل جنب الأهرامات|young man/man,ride,camel,pyramids|
+خيول بتجري قدام الأهرامات|horses,run,pyramids|
+فلوكة وشراع أبيض وقت العصر|felucca,white,sail|
+مركب نيلي وراجل بيشبك صنارة|boat,man,fishing rod/rod/fish|
+صياد بيجر الشبكة من الماية|fisherman,pull/drag,net,water|
+ولاد بيقفزوا في النيل من على كوبري|boys/children/kids,jump,Nile,bridge|
+كوبري قصر النيل واسود الكوبري|Qasr el-?Nil,lions,bridge|
+دار الأوبرا وناس داخلة|opera,people,enter/go in|
+برج كبير مضوي بالألوان|tower,lit/light/illuminat,color/colour|
+ميدان التحرير والعربيات|Tahrir,cars/traffic|
+شارع مزدحم والناس بتعدي|crowded/busy,street,people,cross/pass|
+زحمة مرور والأضواء الحمرا|traffic,red,light|
+إشارة مرور بتتحول لأخضر|traffic light,green|
+نفق طويل وعربية داخلة|long,tunnel,car,enter|
+أسانسير بيفتح وراجل بيطلع|elevator/lift,open,man,out/exit/step|
+سلم كهربا مزدحم|escalator,crowded|
+مول كبير وناس بتتفرج على فاترينات|mall,people,window/shop|
+فاترينة محل ملابس بالليل|shop window/store window/storefront,clothes/clothing/fashion,night|
+كاشير بيحاسب زبون|cashier,customer|
+زبون بيقلب في الهدوم|customer,browse/look/flip/go through/search,clothes|
+بياعة ورد وسط الورد|flower,seller/vendor,flowers|
+ورد أحمر وأبيض في بوكيه|red,white,flower,bouquet|
+بنت ماسكة بوكيه ورد وبتشمه|girl,hold,bouquet,smell|
+راجل بيدي بنت وردة|man,give,girl,flower/rose|
+ولد بيدي أمه هدية|boy,give,mother,gift/present|
+أطفال بيوزعوا حلويات|children/kids,distribut/hand out/giv,sweets/candy|
+بنت بتنفخ الفقاعات|girl,blow,bubbles|
+ولاد بيجروا ورا فقاعات|boys/children/kids,run/chas,bubbles|
+حفلة عيد ميلاد وبالونات|birthday,party,balloons|
+تورتة بتتقطع في عيد ميلاد|cake,cut,birthday|
+شموع بتتطفي دفعة واحدة|candles,blown out/blow/extinguish|
+فرقة كشافة بتمشي بالطبل|scout,march/walk,drum|
+جيش بيعمل استعراض|army/soldiers/military,parade|
+عساكر بيتدربوا في الصحرا|soldiers,train,desert|
+ضابط بيسلم على جندي|officer,salute/shake,soldier|
+طيارين لابسين بدل وبيمشوا ناحية الطيارة|pilots,suits/uniform,walk,plane|
+مضيفة بتقدم أكل في الطيارة|flight attendant/stewardess/air hostess,serv,food,plane|
+شباك طيارة والسحاب تحت|airplane/plane,window,clouds,below/under|
+مسافر شايل شنطة في المطار|traveler/traveller/passenger,carry,bag,airport|
+محطة قطر قديمة والناس مستنية|old,train station/railway station,people,wait|
+قطر بيقوم بالراحة|train,start/depart/leave/move/pull out,slow|
+سواق قطر بيطل من الشباك|train driver/engineer,look/lean,window|
+مرسى مراكب وصيادين|harbor/harbour/marina/dock,boats,fishermen|
+رصيف الميناء بالليل|port/harbor/harbour,pier/dock/quay,night|
+لنش سريع في البحر|speedboat/boat,fast/speed,sea|
+غواص تحت الماية وسمك حواليه|diver,underwater/under water,fish,around|
+عروس بحر في الماية|mermaid,water|
+كنز في قاع البحر|treasure,bottom/floor,sea|
+شعاب مرجانية وسمك ملون|coral,fish,colorful/colourful|
+سلحفاة بتعوم تحت الماية|turtle,swim,underwater/under water|
+نجمة بحر على الرمل|starfish,sand|
+صدف على الشط|shell,beach/shore|
+قلعة رمل والموج بيهدها|sand castle,wave|
+شمسية شاطئ وكراسي|beach umbrella/parasol,chairs|
+ولد بيجري على الرمل وبيضحك|boy,run,sand,laugh|
+بنت بتجري في الموج|girl,run,wave|
+عيلة على الشط وقت الغروب|family,beach,sunset|
+أب وابنه بيصطادوا سمك|father,son,fish|
+جد وحفيده على بنش|grandfather,grandson,bench|
+أم وبنتها بيطبخوا|mother,daughter,cook|
+أخوات بيلعبوا في الجنينة|siblings/brothers/sisters,play,garden|
+جنينة مليانة ورد وفراشات|garden,flowers,butterflies|
+حديقة عامة وناس بتتمشى|park,people,walk|
+سور حديد وورد متسلق|iron/metal,fence,flowers/roses,climb|
+شجرة تين وعصافير|fig,tree,birds/sparrows|
+شجرة جوافة وولد بيقطف|guava,tree,boy,pick|
+نخلة وراجل بيطلعها|palm,man,climb|
+جبل كبير وخيمة صغيرة تحته|large/big/huge/tall,mountain,small/little,tent|
+نار مخيم وناس قاعدين حواليها|campfire/camp fire/fire,people,sit,around|
+قهوة بتتعمل على نار في الصحرا|coffee,fire,desert|
+نجوم فوق خيمة في الصحرا|stars,tent,desert|
+طريق طويل في وسط الصحرا وعربية صغيرة|long,road,desert,small/little,car|
+غروب وراجل راكب موتوسيكل على طريق فاضي|sunset,man,motorcycle,empty,road|
+عربية جيب بتطلع كثيب رمل|jeep/suv/off-road,climb/up,dune/sand|
+كثيب رمل وريح بتبني تموجات|dune/sand,wind,ripple/wave/pattern|
+ثعلب في الصحرا|fox,desert|
+غزالة بتجري في الصحرا|gazelle,run,desert|
+صقر على إيد راجل|falcon/hawk,hand,man|
+صقار بيطلق الصقر|falconer,release/launch/send/let,falcon|
+خيل عربي أصيل بيجري|Arabian,horse,run/gallop|
+شاب بيعلم حصان|young man/man,train/teach,horse|
+فارس بيجري بحصانه على الشط|rider/horseman/horse,horse,run/gallop,beach|
+تحطيب وراجل بيقطع شجرة|man,cut/chop,tree|
+فاس بتضرب في خشب|axe,hit/strik/chop,wood|
+راجل بيشيل حطب على ضهره|man,carry,firewood/wood,back|
+بيت طين قديم وفرن|old,mud,house,oven|
+بيت ريفي وأوضة بسيطة|rural/village/country,house,simple/humble|
+بيت نوبي ملون|Nubian,house,colorful/colourful|
+حيطان زرقا وأبواب خشب|blue,walls,wooden,doors|
+شارع ضيق في قرية نوبية|narrow,street,Nubian,village|
+بنت نوبية بتغني|Nubian,girl,sing|
+رجالة بتلعب مزمار وطبل|men,play,pipe/reed,drum|
+مزمار بلدي في فرح|folk/traditional/baladi/local,pipe/mizmar/reed,wedding|
+رقصة التحطيب بالعصيان|stick dance/tahtib/stick,sticks|
+راقص بيلف بالعصاية|dancer,spin/twirl/whirl,stick|
+ساحر بيطلع أرنب من القبعة|magician,rabbit,hat|
+سحر وعصاية بتطلع شرار|magic,wand,spark|
+قزم صغير وسط الغابة|dwarf/gnome,forest|
+عملاق بيمشي وسط المدينة|giant,walk,city|
+وحش كبير بيطلع من البحر|monster,sea/water/ocean|
+أشباح في بيت مهجور|ghost,abandoned/deserted,house|
+بيت مهجور وضلمة وأبواب بتتفتح لوحدها|abandoned/deserted,house,dark,doors,open|
+عفريت خارج من قمقم|genie/jinn,bottle/lamp/jar/vessel/flask|
+حصان بجناحين|horse,wings|
+تنين أخضر طالع من كهف|green,dragon,cave|
+فارس بيحارب تنين|knight,fight,dragon|
+قصر مسحور وسط الغيم|enchanted/magic,castle,cloud|
+روبوت صغير بيرقص|small/little,robot,danc|
+روبوت بيطبخ في مطبخ|robot,cook,kitchen|
+مدينة تحت الماية|city,underwater/under water|
+محطة فضاء ورواد|space station,astronaut|
+كوكب أحمر وأتربة|red,planet,dust|
+مركبة فضائية بتهبط على كوكب|spaceship/spacecraft,land,planet|
+قمر صناعي بيلف حوالين الأرض|satellite,orbit/circl/spin,earth|
+ديناصورات بتجري ورا بعض|dinosaurs,run,after/behind/chas|
+ماموث في التلج|mammoth,snow|
+إنسان الغاب وسط الغابة|caveman/primitive/ape,forest/jungle|
+رجل الكهف بيشعل نار|caveman,fire|
+جنود رومان بيمشوا في صف|Roman,soldiers,march/walk|
+فرعون على عرشه|pharaoh,throne|
+كليوباترا بتبص في مراية|Cleopatra,mirror|
+ملكة لابسة تاج دهب|queen,gold,crown|
+أمير راكب خيل|prince,ride,horse|
+حارس قصر واقف قدام البوابة|palace,guard,stand,gate|
+بوابة حديد كبيرة وبتتفتح|large/big/huge/iron,gate,open|
+مفتاح كبير قديم|large/big,old,key|
+كتاب قديم بيتفتح وبيطلع منه نور|old,book,open,light|
+مكتبة قديمة وراجل بيدور على كتاب|old,library,man,look/search,book|
+ورقة بتتكتب بالريشة|paper,writ,quill/feather/pen|
+خطاط بيكتب بالحبر|calligrapher,writ,ink|
+رسام بيرسم بورتريه|painter/artist,portrait|
+نحات بينحت تمثال|sculptor,carv/sculpt,statue|
+مصور بيصور طيور|photographer,bird|
+عدسة كاميرا بتلمع|camera,lens,shin/glint/glimmer/reflect|
+مخرج وكاميرا وإضاءة في ستوديو|director,camera,light,studio|
+مذيع قدام الكاميرا|presenter/anchor/host/broadcaster,camera|
+ميكروفون على مسرح|microphone,stage|
+مغنية بتغني وفرقة وراها|singer,band/orchestra/musicians,behind|
+عازف بيانو في قاعة فاضية|pianist/piano,empty,hall|
+عازف كمان قدام البحر|violin,sea|
+بنت بتعزف جيتار على سطح|girl,guitar,roof|
+دي جي وناس بترقص|DJ,people,danc|
+ولد بيضرب على طبلة صغيرة|boy,beat/hit/play,small/little,drum|
+فرقة بتعزف في الشارع بالليل|band,play,street,night|
+حفلة وأضواء ليزر|party/concert,laser,light|
+مباراة كورة وجمهور بيهتف|football/soccer,match/game,crowd/fans,cheer|
+ملعب كبير بالليل والأنوار|large/big/huge/stadium,stadium,night,lights|
+لاعب بيحتفل بجون|player,celebrat,goal|
+حكم بيرفع كرت أحمر|referee,red card|
+لاعب تنس بيضرب الكورة|tennis,player,hit/strik,ball|
+سباح بيعوم في حمام سباحة|swimmer,swim,pool|
+سباق جري وناس بتجري|race,runners/people,run|
+راجل بيقفز بالعصاية|man/athlete/vaulter,pole,jump/vault|
+بنت بتلعب جمباز|girl,gymnastic|
+مصارع في الحلبة|wrestler,ring|
+فارس بيلعب بالسيف|swordsman/fencer/man,sword|
+راجل بيرمي سهم|man/archer,shoot/fire/release/draw,arrow|
+بنت بترمي سهم على هدف|girl,arrow,target|
+لاعب شطرنج بيحرك قطعة|chess,player,move,piece|
+ولاد بيلعبوا ورق|boys/children/kids/men,play,cards|
+طفل بيلون كراسة|child/boy/kid,color/colour,notebook|
+بنت بتحل واجب|girl,homework|
+مدرس بيمسح السبورة|teacher,erase/wipe/clean,blackboard/board|
+طالب رافع إيده|student,raise,hand|
+طلبة بيخرجوا من المدرسة|students/children/kids,leave/exit/come out,school|
+باص مدرسة أصفر|yellow,school bus|
+سواق باص بيفتح الباب|bus driver/driver,open,door|
+امرأة بتجري ورا الأتوبيس|woman,run,bus|
+واحد واقف في المطر مستني تاكسي|man/person,stand/wait,rain,taxi|
+شمسية مفتوحة وناس بتجري|umbrella,open,people,run|
+مطرة بتغسل الشارع|rain,wash,street|
+بحيرة متجمدة وناس بتتزحلق|frozen,lake,people,skat/slid/slip|
+شجرة كريسماس مولعة|Christmas tree,lit/light/glow|
+بابا نويل بيوزع هدايا|Santa,gifts/presents,giv/distribut/deliver|
+شمعة كبيرة مولعة في الضلمة|large/big,candle,lit/burning/flame,dark|
+مصباح زيت مولع على ترابيزة|oil lamp/lantern,lit/burning/glow,table|
+ولاعة بتولع نار صغيرة|lighter,small,flame/fire|
+حطب بيتحرق في مدفأة|wood/firewood,burn,fireplace/fire|
+سخان مياه شغال|water heater,on/running/working|
+دخان طالع من فنجان قهوة|smoke/steam,rising/coming,coffee,cup|
+بخار طالع من حلة|steam,pot|
+ماية بتغلي في كنكة|water,boil,pot/kettle|
+براد شاي على نار هادية|teapot/kettle,tea,fire/flame/stove,low/gentle/slow/quiet|
+عصير بيتحط في كوباية فيها تلج|juice,glass,ice|
+تلج بيتكسر|ice,break/crack/crush|
+تلج بيتحط في كوباية|ice,glass|
+زجاجة مياه ساقعة عليها ندى|cold,water,bottle,condensation/dew/drops/droplets|
+شلال شيكولاتة|chocolate,waterfall/fountain/fall|
+عجينة بتتلف على نفسها|dough,spin/roll/twist/turn|
+فطيرة بتتفتح بإيد|pie/pastry/feteer,open/tear/break,hand|
+قشطة بتتحط على كنافة|cream,kunafa/knafeh|
+بيتزا وجبنة بتتمط|pizza,cheese,stretch/pull|
+برجر وبطاطس|burger,fries/potatoes|
+سلطة فواكه ملونة|fruit salad,colorful/colourful|
+عصير فراولة بيتصب|strawberry,juice,pour|
+شاي أخضر في كوباية ازاز|green tea,glass|
+قهوة وكتاب وصبح هادي|coffee,book,morning,calm/quiet/peaceful|
+كاتب بيشتغل على لاب توب في كافيه|writer/man/person,laptop,cafe|
+شاب بيكتب كود على شاشة|young man/man,cod,screen|
+فريق شغل في اجتماع|team,meeting|
+بنت بتقدم عرض قدام زمايلها|girl,present/presentation,colleagues/coworkers|
+مدير بيمضي ورق|manager/boss/man,sign,paper/document|
+مكتب مزدحم ومكالمات|busy/crowded,office,call/phone|
+مصنع ملابس وماكينات خياطة|clothing/garment/clothes,factory,sewing|
+مخبز كبير وعيش بيطلع|large/big,bakery,bread|
+مصنع حلويات وشيكولاتة|candy/sweets/chocolate,factory|
+محل عطارة وأعشاب|herb/spice,shop/store|
+بياع فاكهة بينادي على بضاعته|fruit,vendor/seller,call/shout/cry/hawk|
+ست بتبيع جبنة في الريف|woman,sell,cheese,village/country/rural|
+سوق الجمعة والناس مزدحمة|market,crowded/people|
+مزاد وناس بترفع إيديها|auction,people,raise,hands|

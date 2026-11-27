@@ -1,0 +1,107 @@
+# idea | expected fields (cat=0/10 means either; peo, sty, set, tod, mood, rat) | kw = required words in the English subject (any of, separated by /)
+إعلان ساعة يد فاخرة|cat=0|peo=0|sty=0|kw=watch
+إعلان موبايل جديد|cat=0|peo=0|kw=phone/mobile/smartphone
+إعلان حذاء رياضي|cat=0/7/10|kw=shoe/sneaker
+إعلان عطر رجالي|cat=0|kw=perfume/fragrance/cologne/bottle
+إعلان سيارة كهربا|cat=0/7|kw=car/vehicle
+إعلان شاي بالنعناع|cat=0/5|kw=tea
+إعلان مياه معدنية|cat=0|kw=water/bottle
+إعلان شنطة جلد|cat=0/9|kw=bag/leather
+إعلان قهوة تركي|cat=0/5|kw=coffee
+إعلان سماعات لاسلكي|cat=0/8|kw=headphone/earbud/headset
+luxury watch commercial on black background|cat=0|peo=0|kw=watch
+sneaker ad with neon lights|cat=0/10|kw=sneaker/shoe
+مطعم كشري جديد في وسط البلد|cat=5|kw=koshary/restaurant/bowl
+فيديو لبرجر دبل تشيز|cat=5|kw=burger
+كنافة بالقشطة|cat=5|kw=kunafa/knafeh/cream
+بيتزا مارجريتا من الفرن|cat=5|kw=pizza
+عصير مانجا طازج|cat=5|kw=mango/juice
+ستيك مشوي على الفحم|cat=5|kw=steak
+سوشي وشيف ياباني|cat=5|kw=sushi
+فطار مصري فول وطعمية|cat=5|kw=fava/falafel/ful/foul/breakfast
+حلويات رمضان|cat=5/10|kw=sweet/dessert/kunafa/pastr/basbousa/qatayef
+a steaming bowl of ramen in a small shop|cat=5|kw=ramen/noodle
+ice cream melting in the sun|cat=5|kw=ice cream
+فيلا مودرن في التجمع|cat=1|peo=0|kw=villa
+برج سكني على النيل|cat=1|peo=0|kw=tower/building/residential
+فندق خمس نجوم على البحر الأحمر|cat=1|kw=hotel
+مول تجاري جديد|cat=1|peo=0/1/2|kw=mall
+شقة تشطيب لوكس|cat=1|kw=apartment/flat/interior
+كمبوند سكني فيه جنينة وحمام سباحة|cat=1|kw=compound/residential/pool/garden/villa
+مكتب إداري زجاجي|cat=1|kw=office/glass
+glass skyscraper at night in Dubai|cat=1|peo=0|kw=skyscraper/tower/building
+cozy cabin in the snowy forest|cat=1/6|kw=cabin
+قصة عن راجل عجوز وحفيده|cat=2|peo=1/2|kw=man/grandfather/grandson
+فيلم رعب قصير عن بيت مهجور|cat=2|mood=5|kw=house
+مشهد حزين لبنت بتودع أمها في المطار|cat=2|mood=3|peo=1/2|kw=girl/woman/mother
+مشهد حب على الكورنيش|cat=2|peo=2/1|kw=couple/man/woman/girl
+قصة بوليسية في شوارع القاهرة بالليل|cat=2|tod=3|kw=detective/man/city/street/Cairo
+black and white film about a lonely sailor|cat=2|sty=11|kw=sailor
+a samurai walking in the rain|cat=2/7|peo=1|kw=samurai
+شرح إزاي بيشتغل الذكاء الاصطناعي|cat=3/8|kw=AI/neural/network/brain/node/data
+إنفوجراف عن أضرار السكر|cat=3|peo=0/1|kw=sugar
+شرح دورة المياه في الطبيعة|cat=3|kw=water/cycle/rain/cloud
+شرح فوايد النوم بشكل مبسط|cat=3|kw=sleep/moon/bed/brain
+motion graphics explaining how blockchain works|cat=3/8|sty=8|kw=blockchain/block/chain
+كارتون عن أرنب شاطر|cat=4|peo=1/2|kw=rabbit
+فيلم أطفال عن ديناصور لطيف|cat=4|kw=dinosaur
+شخصيات كرتون بتعلم الأطفال الحروف|cat=4|peo=2|kw=letter/character/children/cartoon
+أنمي عن بنت ساحرة|cat=4/2|sty=2|kw=girl/witch
+قطة وفار في كارتون ٢D|cat=4|sty=3|kw=cat/mouse
+cute robot and a little girl cartoon|cat=4|kw=robot/girl
+رحلة إلى جبال سانت كاترين|cat=6|kw=mountain/Catherine
+شلالات في غابة استوائية|cat=6|kw=waterfall/forest/jungle
+رحلة سفاري في الصحرا البيضا|cat=6|set=1|kw=desert/safari/white
+غروب على النيل في أسوان|cat=6|tod=0|set=5|kw=Nile/Aswan/felucca
+شروق في جبال الألب|cat=6|tod=1|kw=Alps/mountain
+جزيرة استوائية ورمل أبيض|cat=6|kw=island/beach/palm
+دبي من فوق بالدرون|cat=6/1/0|sty=10|kw=Dubai/city/skyline
+traveling through the Swiss alps by train|cat=6|kw=train/Alps/Swiss/mountain
+سباق عربيات في الصحرا|cat=7|set=1|kw=car/race
+لاعب كورة بيسجل في الدقيقة الأخيرة|cat=7|peo=1/2|kw=footballer/player/soccer/football
+ملاكم بيتدرب قبل النزال|cat=7|peo=1|kw=boxer
+بطل جري ماراثون|cat=7|peo=1/2|kw=runner/marathon
+سباق خيول|cat=7|kw=horse
+شاب بيعمل باركور على أسطح العمارات|cat=7|peo=1|kw=parkour/man
+a surfer riding a huge wave|cat=7|peo=1|kw=surfer/wave
+روبوت بيشتغل في مصنع مستقبلي|cat=8|kw=robot/factory
+مدينة ذكية وسيارات بتطير|cat=8|kw=city/car
+تطبيق موبايل جديد للتوصيل|cat=8/0/10|kw=app/phone/mobile/delivery
+مركز بيانات وسيرفرات مضيئة|cat=8|kw=server/data
+hologram interface for a space station|cat=8|sty=5|kw=hologram/interface
+إعلان فستان سهرة|cat=9|peo=1|kw=dress/gown
+منتجات عناية بالبشرة|cat=9/0|kw=skincare/cream/serum/bottle
+إعلان مجوهرات دهب|cat=9/0|kw=gold/jewel/necklace/ring
+مكياج عروس|cat=9|peo=1|kw=bride/makeup
+إعلان عبايات شتوية|cat=9|peo=1|kw=abaya/coat/robe
+ريلز لمشروب طاقة|cat=10|rat=0|kw=energy/drink/can
+تيك توك لكافيه جديد|cat=10|rat=0|kw=cafe/coffee
+ريلز لحلاق عصري|cat=10|rat=0|kw=barber/hair
+ريلز تحدي رقص|cat=10|rat=0|kw=danc
+instagram reel for a new gym opening|cat=10|rat=0|kw=gym/fitness/workout
+فيلم وثائقي عن صناع الفخار في الفسطاط|cat=11|kw=potter/pottery/clay
+وثائقي عن حياة الصيادين في بورسعيد|cat=11|kw=fisherm/fish
+وثائقي عن خان الخليلي|cat=11|set=7|kw=Khan/market/bazaar
+وثائقي عن النحاس والنقش|cat=11|kw=copper/engrav
+documentary about a village in Nubia|cat=11|kw=Nubia/village
+إعلان توعية عن النظافة للأطفال|cat=4/2/3|kw=child/children/kid/clean/hygiene
+فيديو دعائي لشركة مقاولات|cat=1/0/10|kw=construction/building/engineer/worker/site
+دعاية لمدرسة لغات|cat=11/2/10|kw=school/student/children/class
+فيديو افتتاح معرض فني|cat=2/11/10|kw=gallery/art/exhibition/painting
+دعاية لعيادة أسنان|cat=0/9/10/2|kw=dent/tooth/clinic
+إعلان لمنتج تنظيف|cat=0|kw=clean/detergent/bottle/spray
+مقدمة برنامج رمضاني|cat=2/10/11|kw=Ramadan/lantern/show/studio
+إعلان لتطبيق بنك|cat=8/0/10|kw=bank/app/phone/card
+هدية عيد الأم|cat=2/10/0|kw=mother/gift/flower
+سلسلة قصة قبل النوم للأطفال|cat=4/2|kw=child/bed/story/bear/rabbit
+ديناصور بيجري ورا عربية جيب|cat=7/2/4|kw=dinosaur/jeep
+حصان أبيض بيجري على الشط وقت الغروب|cat=6/2/7|tod=0|kw=horse
+غواص بيكتشف سفينة غارقة|cat=2/6/11|kw=diver/ship/wreck
+طيارة ورق ملونة في سما صافية|cat=6/2/4|kw=kite
+مطرة على شارع قديم في إسكندرية|cat=2/6/11|tod=4/3|kw=rain/street/Alexandria
+معركة فرسان في العصور الوسطى|cat=2/7|sty=0/6|kw=knight
+تنين بيطير فوق قلعة|cat=2/4|sty=6|kw=dragon/castle
+رائد فضاء على سطح المريخ|cat=2/6/8|sty=5/0|set=6/1|kw=astronaut/Mars
+مدينة تحت الماية|cat=2/6|sty=5/6/0|kw=city/underwater
+ساحر عجوز بيحضر وصفة|cat=2/4|sty=6|kw=wizard/magician
+شتاء في قرية جبلية والتلج بينزل|cat=6/2|tod=4/2|kw=village/snow

@@ -2,6 +2,7 @@
 // Secrets/vars: DATABASE_URL (secret), VAPID_PRIVATE_JWK (secret), VAPID_PUBLIC (var), VAPID_SUBJECT (var).
 import { neon } from "@neondatabase/serverless";
 import { TR_SYSTEM } from "./translate-prompt.js";
+import { PLAN_SYSTEM } from "./plan-prompt.js";
 import { handlePublic, handleAdmin } from "./site.js";
 import { handlePublish, advanceAll } from "./publish.js";
 
@@ -68,6 +69,18 @@ async function deadlineReminders(sql, env) {
   }
 }
 
+// best-effort per-visitor limit (memory of this worker instance)
+function rateLimited(req, key, perMin, perDay) {
+  const ip = (req.headers.get("cf-connecting-ip") || "x") + key, now = Date.now(), L = (globalThis.__rl = globalThis.__rl || new Map());
+  const e = L.get(ip) || { m: [], d: [] };
+  e.m = e.m.filter((t) => now - t < 60000); e.d = e.d.filter((t) => now - t < 86400000);
+  if (e.m.length >= perMin || e.d.length >= perDay) return true;
+  e.m.push(now); e.d.push(now); L.set(ip, e);
+  if (L.size > 5000) for (const k of L.keys()) { L.delete(k); if (L.size < 2500) break; }
+  return false;
+}
+const clampInt = (v, lo, hi, d) => { v = Math.round(Number(v)); return Number.isFinite(v) && v >= lo && v <= hi ? v : d; };
+const cleanTxt = (x, n) => String(x == null ? "" : x).replace(/[\u0600-\u06FF]/g, "").replace(/\s+/g, " ").replace(/[.,;:!\s]+$/, "").trim().slice(0, n);
 export default {
   async scheduled(event, env) { const sql = neon(env.DATABASE_URL); await deadlineReminders(sql, env); await sql`delete from notifications where created_at < now() - interval '30 days'`; await sql`delete from sessions where expires_at < now()`; await sql`delete from login_attempts where at < now() - interval '1 day'`; try { if (env.META_PAGE_TOKEN) await advanceAll(sql, env); } catch (_) {} },
 
@@ -77,14 +90,7 @@ export default {
     // Public (no login): Arabic -> short English for the prompt tool. Uses the Workers AI binding "AI". Nothing is stored.
     if (p === "/api/prompt/translate" && req.method === "POST") {
       if (!env.AI) return json({ error: "no_ai" }, 503);
-      { // best-effort per-visitor limit (memory of this worker instance): 12 calls/minute, 150/day per IP
-        const ip = req.headers.get("cf-connecting-ip") || "x", now = Date.now(), L = (globalThis.__trl = globalThis.__trl || new Map());
-        const e = L.get(ip) || { m: [], d: [] };
-        e.m = e.m.filter((t) => now - t < 60000); e.d = e.d.filter((t) => now - t < 86400000);
-        if (e.m.length >= 12 || e.d.length >= 150) return json({ error: "rate_limited" }, 429, { "retry-after": "60" });
-        e.m.push(now); e.d.push(now); L.set(ip, e);
-        if (L.size > 5000) for (const k of L.keys()) { L.delete(k); if (L.size < 2500) break; }
-      }
+      if (rateLimited(req, "tr", 12, 150)) return json({ error: "rate_limited" }, 429, { "retry-after": "60" });
       let b; try { b = await req.json(); } catch { return json({ error: "bad_json" }, 400); }
       const texts = (Array.isArray(b.texts) ? b.texts : []).slice(0, 12).map((x) => String(x || "").slice(0, 300));
       if (!texts.length) return json({ error: "empty" }, 400);
@@ -98,6 +104,36 @@ export default {
           return e && !/[\u0600-\u06FF]/.test(e) ? e : "";
         }));
         return json({ texts: out });
+      } catch (e) { return json({ error: "ai_failed" }, 502); }
+    }
+    // Public (no login): smart "surprise me". Reads an idea (Arabic or English) and returns settings for the prompt tool. Nothing stored.
+    if (p === "/api/prompt/plan" && req.method === "POST") {
+      if (!env.AI) return json({ error: "no_ai" }, 503);
+      if (rateLimited(req, "plan", 12, 250)) return json({ error: "rate_limited" }, 429, { "retry-after": "60" });
+      let b; try { b = await req.json(); } catch { return json({ error: "bad_json" }, 400); }
+      const idea = String(b.idea || "").replace(/\s+/g, " ").trim().slice(0, 400), n = clampInt(b.shots, 2, 24, 4);
+      if (idea.length < 2) return json({ error: "empty" }, 400);
+      try {
+        let plan = null;
+        for (let attempt = 0; attempt < 2 && !plan; attempt++) {
+          const r = await env.AI.run("@cf/meta/llama-3.3-70b-instruct-fp8-fast", { max_tokens: 1400, temperature: attempt ? 0.3 : 0, messages: [
+            { role: "system", content: PLAN_SYSTEM },
+            { role: "user", content: "Idea: " + idea + "\nNumber of shots: exactly " + n } ] });
+          let txt = String(r && r.response != null ? (typeof r.response === "string" ? r.response : JSON.stringify(r.response)) : "");
+          const i = txt.indexOf("{"), j = txt.lastIndexOf("}");
+          if (i < 0 || j < i) continue;
+          let o; try { o = JSON.parse(txt.slice(i, j + 1)); } catch { continue; }
+          const subj = cleanTxt(o.subj, 300);
+          if (!subj || !Array.isArray(o.shots) || !o.shots.length) continue;
+          let shots = o.shots.slice(0, 24).map((x) => ({ t: clampInt(x && x.t, 0, 12, 0), a: cleanTxt(x && x.a, 200) }));
+          while (shots.length < n) shots.push({ t: [0, 4, 1, 3, 2, 5][shots.length % 6], a: "" });
+          shots = shots.slice(0, n);
+          shots[shots.length - 1].t = 12;
+          for (let q = 1; q < shots.length - 1; q++) if (shots[q].t === shots[q - 1].t) shots[q].t = (shots[q].t + 4) % 12;
+          plan = { cat: clampInt(o.cat, 0, 11, 2), sty: clampInt(o.sty, 0, 11, 0), set: clampInt(o.set, 0, 7, 3), tod: clampInt(o.tod, 0, 4, 0), mood: clampInt(o.mood, 0, 5, 0), pal: clampInt(o.pal, 0, 5, 0), peo: clampInt(o.peo, 0, 2, 0), rat: o.rat == null ? null : clampInt(o.rat, 0, 2, null), subj, shots };
+        }
+        if (!plan) return json({ error: "bad_plan" }, 502);
+        return json({ plan });
       } catch (e) { return json({ error: "ai_failed" }, 502); }
     }
     if (!env.DATABASE_URL) return json({ error: "not_configured" }, 503);
