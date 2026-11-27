@@ -73,6 +73,33 @@ export default {
   async fetch(req, env) {
     const url = new URL(req.url), p = url.pathname;
     if (!p.startsWith("/api/")) return env.ASSETS ? env.ASSETS.fetch(req) : new Response("not found", { status: 404 });
+    // Public (no login): Arabic -> short English for the prompt tool. Uses the Workers AI binding "AI". Nothing is stored.
+    if (p === "/api/prompt/translate" && req.method === "POST") {
+      if (!env.AI) return json({ error: "no_ai" }, 503);
+      { // best-effort per-visitor limit (memory of this worker instance): 12 calls/minute, 150/day per IP
+        const ip = req.headers.get("cf-connecting-ip") || "x", now = Date.now(), L = (globalThis.__trl = globalThis.__trl || new Map());
+        const e = L.get(ip) || { m: [], d: [] };
+        e.m = e.m.filter((t) => now - t < 60000); e.d = e.d.filter((t) => now - t < 86400000);
+        if (e.m.length >= 12 || e.d.length >= 150) return json({ error: "rate_limited" }, 429, { "retry-after": "60" });
+        e.m.push(now); e.d.push(now); L.set(ip, e);
+        if (L.size > 5000) for (const k of L.keys()) { L.delete(k); if (L.size < 2500) break; }
+      }
+      let b; try { b = await req.json(); } catch { return json({ error: "bad_json" }, 400); }
+      const texts = (Array.isArray(b.texts) ? b.texts : []).slice(0, 12).map((x) => String(x || "").slice(0, 300));
+      if (!texts.length) return json({ error: "empty" }, 400);
+      try {
+        const out = [];
+        for (const t of texts) {
+          if (!/[\u0600-\u06FF]/.test(t)) { out.push(t); continue; }
+          const r = await env.AI.run("@cf/meta/llama-3.3-70b-instruct-fp8-fast", { max_tokens: 160, temperature: 0.2, messages: [
+            { role: "system", content: "You translate Arabic (Egyptian dialect or Modern Standard) into one short, concrete English phrase for an AI video prompt. Describe only what is seen: subject, appearance, or action. Keep every detail and color the user gave, add nothing new, no camera words, no quotes, no explanation. Output only the English phrase." },
+            { role: "user", content: t }] });
+          const e = String(r && r.response || "").trim().replace(/^["'`]+|["'`]+$/g, "").replace(/\s+/g, " ").slice(0, 400);
+          out.push(e && !/[\u0600-\u06FF]/.test(e) ? e : "");
+        }
+        return json({ texts: out });
+      } catch (e) { return json({ error: "ai_failed" }, 502); }
+    }
     if (!env.DATABASE_URL) return json({ error: "not_configured" }, 503);
     const sql = neon(env.DATABASE_URL);
     if (p === "/api/push/key") return json({ key: env.VAPID_PUBLIC || "" });
